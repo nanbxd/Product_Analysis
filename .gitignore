@@ -1,0 +1,15 @@
+# Окружение
+testvenv/
+
+# Секреты (ВАЖНО)
+.env
+
+# Кэш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Конфиги IDE
+.vscode/
+.idea/
+
