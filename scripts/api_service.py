@@ -1,7 +1,7 @@
 import aiohttp
-import re
 import logging
-
+import asyncio
+import base64
 
 class PinduoduoService:
     def __init__(self, api_keys: list):
@@ -9,7 +9,14 @@ class PinduoduoService:
         self.host = "pinduoduo1.p.rapidapi.com"
         self.keys = api_keys 
         self.current_key_idx = 0
+        self._session = None
 
+    async def get_session(self):
+        # Создаем сессию только когда она реально нужна внутри асинхронного метода
+        if self._session is None or self._session.closed:
+            self._session = aiohttp.ClientSession()
+        return self._session
+    
     def _get_headers(self):
         # Берем текущий ключ и имитируем браузер
         headers = {
@@ -26,35 +33,215 @@ class PinduoduoService:
     async def fetch_product(self, keyword: str):
         """Основной метод поиска товара"""
         params = {"keyword": keyword, "sortType": "default"} # Ставим sales для надежности
-        
-        async with aiohttp.ClientSession() as session:
-            for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан
-                try:
-                    async with session.get(self.url, headers=self._get_headers(), params=params, timeout=10) as resp:
-                        if resp.status == 429: # Лимит исчерпан
-                            self._rotate_key()
-                            continue
-                        
-                        result = await resp.json()
-                        
-                        if result.get("success") and result["data"]["items"]:
-                            item = result["data"]["items"][0] # Берем первый товар
-                            return self._format_data(item)
-                        return None
-                        
-                except Exception as e:
-                    logging.error(f"Ошибка запроса к Pinduoduo: {e}")
+        session = await self.get_session()
+        for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан
+            try:
+                async with session.get(self.url, headers=self._get_headers(), params=params, timeout=10) as resp:
+                    if resp.status == 429: # Лимит исчерпан
+                        self._rotate_key()
+                        continue
+                    
+                    result = await resp.json()
+                    
+                    if result.get("success") and result["data"]["items"]:
+                        products = result["data"]["items"]
+                        responselist = []
+                        for prod in products:
+                            responselist.append(self._format_data(prod))
+                        return responselist
                     return None
+                    
+            except Exception as e:
+                logging.error(f"Ошибка запроса к Pinduoduo: {e}")
+                return None
         return None
 
     def _format_data(self, item: dict):
         """Чистим данные: цену в юани, картинку в https"""
         return {
-            "image": "https:" + item.get("thumb_url", None),
-            "Название": item.get("goods_name"),
-            "Тэг": item.get("tag"),
-            "Продажи": item.get("side_sales_tip", "Нет данных"),
-            "Цена_юань": item.get("default_price", 0) / 100,
-            "Ссылка": item.get("product_url"),
-            "id": item.get("goods_id")
+            "image": f"https:{item.get('thumb_url', None)}",
+            "title": item.get("goods_name"),
+            "tag": item.get("tag"),
+            "sales": item.get("side_sales_tip", "Нет данных"),
+            "price_yuan": item.get("default_price", 0) / 100,
+            "link": item.get("product_url"),
+            "id": item.get("goods_id"),
+            'market': 'Pinduoduo'
         }
+
+
+class TaobaoService:
+    def __init__(self, api_keys: list):
+        self.host = "taobao-datahub.p.rapidapi.com"
+        self.keys = api_keys 
+        self.current_key_idx = 0
+        self.searth_img_url = "https://taobao-datahub.p.rapidapi.com/item_search_image_2"
+        self.product_details_url = "https://taobao-datahub.p.rapidapi.com/item_detail"
+        self._session = None # Сессию создадим позже
+
+    async def get_session(self):
+        # Создаем сессию только когда она реально нужна внутри асинхронного метода
+        if self._session is None or self._session.closed:
+            self._session = aiohttp.ClientSession()
+        return self._session
+    
+    def _get_headers(self):
+        # Берем текущий ключ и имитируем браузер
+        headers = {
+            "x-rapidapi-key": self.keys[self.current_key_idx],
+            "x-rapidapi-host": self.host,
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+        }
+        return headers
+
+    def _rotate_key(self):
+        self.current_key_idx = (self.current_key_idx + 1) % len(self.keys)
+        logging.info(f"Переключились на API ключ №{self.current_key_idx}")
+
+    async def tao_imginfo(self, cloud_name, upload_preset, img: bytes):
+        print(img)
+        online_img = await self._getwebimg(cloud_name=cloud_name,upload_preset=upload_preset,img_bytes=img)
+        print(online_img) 
+        params = {"imgUrl": online_img, "pageSize": "10"}
+
+        for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан
+            try:
+                session = await self.get_session()
+                async with session.get(self.searth_img_url, headers=self._get_headers(), params=params, timeout=20) as resp:
+                    if resp.status == 429: # Лимит исчерпан
+                        self._rotate_key()
+                        continue
+                    elif resp.status != 200:
+                        error_text = await resp.text()
+                        return f"Ошибка API Taobao ({resp.status}): {error_text[:100]}"
+                    result = await resp.json()
+                    
+                    products = result.get('result', {}).get('resultList')
+                    if products is None:
+                        return "Товары не найдены или структура ответа изменилась"
+                    responselist = []
+                    for prod in products:
+                        item = prod['item']
+                        responselist.append({
+                                    "image": f"https:{item.get('image', None)}",
+                                    'title': item.get("title"),
+                                    'link': f"https:{item.get('itemUrl')}",
+                                    "id": item.get("itemId"),
+                                    'idStr': item.get("itemIdStr"),
+                                    'market': 'Taobao'
+                                    })
+                    return responselist
+
+            except asyncio.TimeoutError:
+                return "Ошибка: API не ответило вовремя"
+            except Exception as e:
+                return f"Ошибка при выполнении запроса: {e}"
+
+
+
+    async def _getwebimg(self, cloud_name: str, upload_preset: str, img_bytes: bytes) -> str:
+        """
+        Загружает изображение в Cloudinary и возвращает прямую ссылку.
+        """
+
+        if not img_bytes or len(img_bytes) < 50:
+            raise Exception("Файл пустой или поврежден")
+
+        upload_url = f"https://api.cloudinary.com/v1_1/{cloud_name}/image/upload"
+
+        data = aiohttp.FormData()
+        data.add_field("upload_preset", upload_preset)
+        data.add_field(
+            "file",
+            img_bytes,
+            filename="upload.jpg",
+            content_type="image/jpeg"
+        )
+
+        timeout = aiohttp.ClientTimeout(total=20)
+
+        async with aiohttp.ClientSession(timeout=timeout) as session:
+            async with session.post(upload_url, data=data) as resp:
+
+                if resp.status != 200:
+                    text = await resp.text()
+                    raise Exception(f"Cloudinary Error {resp.status}: {text}")
+
+                result = await resp.json()
+
+                return result["secure_url"]  # HTTPS ссылка
+            
+    def _format_data(self, data: dict):
+        if not data or "item" not in data:
+            return {"error": "Товар не найден или ошибка API"}
+
+        item = data["item"]
+        sku_info = item.get("sku", {})
+        
+        # 1. Считаем общий остаток на складе по всем вариациям
+        total_stock = sum(int(s.get("quantity", 0)) for s in sku_info.get("base", []))
+
+        # 2. Собираем характеристики (материал, сезон и т.д.) в одну строку или список
+        properties = {p.get("name"): p.get("value") for p in item.get("properties", {}).get("list", [])}
+
+        # 3. Анализ цен (берем из дефолтного SKU)
+        default_sku = sku_info.get("def", {})
+        current_price = default_sku.get("promotionPrice") or default_sku.get("price")
+        old_price = default_sku.get("price")
+
+        # 4. Формируем финальный словарь
+        analysis_report = {
+            # Основная инфа
+            "item_id": item.get("itemId"),
+            "title": item.get("title"),
+            "category": item.get("catName"),
+            
+            # Коммерция
+            "price_current": float(current_price) if current_price else 0,
+            "price_original": float(old_price) if old_price else 0,
+            "monthly_sales": int(item.get("sales", 0)),
+            "total_stock": total_stock,
+            
+            # Логистика
+            "ships_from": item.get("delivery", {}).get("shipsFrom"),
+            "shipping_fee": item.get("delivery", {}).get("shipFeeDetails", [{}])[0].get("fee", "0.00"),
+            
+            # Продавец и доверие
+            "seller_name": item.get("seller", {}).get("storeTitle"),
+            "seller_type": item.get("seller", {}).get("storeType"), # tmall или taobao
+            "shop_rating": item.get("seller", {}).get("storeEvaluates", [{}])[0].get("score"), # Оценка товара
+            "reviews_count": item.get("reviews", {}).get("count"),
+            
+            # Контент
+            "all_props": properties, # Весь состав/характеристики здесь
+            "url": f"https:{item.get('itemUrl')}"
+        }
+
+        return analysis_report
+
+    
+    async def get_item_detail(self, item_id: str, item_id_str: str = None):
+        params = {
+            "itemId": item_id,
+            "itemIdStr": item_id_str
+        }
+
+        for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан
+            try:
+                session = await self.get_session()
+                async with session.get(self.product_details_url, headers=self._get_headers(), params=params, timeout=20) as resp:
+                    if resp.status == 429: # Лимит исчерпан
+                        self._rotate_key()
+                        continue
+                    elif resp.status != 200:
+                        error_text = await resp.text()
+                        return f"Ошибка API Taobao ({resp.status}): {error_text[:100]}"
+                    result = await resp.json()
+                    
+                    return self._format_data(result)
+                    
+
+            except asyncio.TimeoutError:
+                return "Ошибка: API не ответило вовремя"
+            except Exception as e:
+                return f"Ошибка при выполнении запроса: {e}"

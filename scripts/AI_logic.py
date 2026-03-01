@@ -1,6 +1,6 @@
 from groq import AsyncGroq
 import base64
-from scripts.AI_promt import context, ai_hints, pinduo_analyse_prompt
+from scripts.AI_promt import context, ai_hints, pinduo_analyse_promt, taobao_analyse_promt, default_analyse_prompt
 
 class GroqAI:
     def __init__(self, api_key: str, model: str):
@@ -74,14 +74,22 @@ class GroqAI:
             return f"Ошибка при анализе изображения: {e}"
         
 
-    async def product_analysis(self, user_id: int, product_data: dict) -> str:
+    async def product_analysis(self, user_id: int, product_data: dict, market: str = None) -> str:
         if user_id not in self.history:
             await self.clear_context(user_id)
-
+        if market == 'Pinduoduo':
+            command = '/pindname'
+            analyse_promt = pinduo_analyse_promt
+        elif market == 'Taobao':
+            command == '/taoimg'
+            analyse_promt = taobao_analyse_promt
+        else:
+            command == 'для анализа'
+            analyse_promt = default_analyse_prompt
         # Формируем сообщение с данными товара
         product_message = {
             "role": "user",
-            "content": f"Запрос от команды /pindname или /anal. {pinduo_analyse_prompt} - Данные о товаре --> {product_data}"
+            "content": f"Запрос от команды {command}. {analyse_promt} - Данные о товаре --> {product_data}"
         }
 
         full_messages = self.history[user_id] + [product_message]
@@ -94,7 +102,7 @@ class GroqAI:
             response = completion.choices[0].message.content
         
             # Записываем в историю запрос и ответ
-            self.history[user_id].append({"role": "user", "content": f"[Анализ товара]: {product_data['Название']}"})
+            self.history[user_id].append({"role": "user", "content": f"[Анализ товара]: {product_data['title']}"})
             self.history[user_id].append({"role": "assistant", "content": response})
         
             return response

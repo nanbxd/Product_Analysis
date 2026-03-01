@@ -10,9 +10,12 @@ class Settings(BaseSettings):
     ai_groq_api: SecretStr
     ai_groq_model: SecretStr
 
-    pinduoapi_key1: SecretStr
-    pinduoapi_key2: SecretStr
+    rapidapi_key1: SecretStr
+    rapidapi_key2: SecretStr
 
+    img_key: SecretStr
+    img_secret: SecretStr
+    cloud_name: SecretStr
     # Начиная со второй версии pydantic, настройки класса настроек задаются
     # через model_config
     # В данном случае будет использоваться файла .env, который будет прочитан

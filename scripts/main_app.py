@@ -9,82 +9,109 @@ from config_reader import config
 from scripts.AI_logic import GroqAI
 from aiogram.client.default import DefaultBotProperties
 import html
-from scripts.api_service import PinduoduoService
+from scripts.api_service import PinduoduoService, TaobaoService
+from aiogram.filters import Command
+from scripts.states_app import SearchState
+from aiogram.fsm.context import FSMContext
+from aiogram.types import BotCommand, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
 #python -m scripts.main_app
 
 
 logging.basicConfig(level=logging.INFO)
-pdd_service = PinduoduoService(api_keys=[config.pinduoapi_key1.get_secret_value(), config.pinduoapi_key2.get_secret_value()])
-client_groq = GroqAI(api_key=config.ai_groq_api.get_secret_value(), model=config.ai_groq_model.get_secret_value())
+pdd_service = PinduoduoService(api_keys=[config.rapidapi_key1.get_secret_value(), config.rapidapi_key2.get_secret_value()])
+tao_service = TaobaoService(api_keys=[config.rapidapi_key1.get_secret_value(), config.rapidapi_key2.get_secret_value()])
+client_groq = GroqAI(api_key=config.ai_groq_api.get_secret_value(), model=config.ai_groq_model.get_secret_value()) 
 bot = Bot(token=config.tovarnyu_token.get_secret_value(), 
         default=DefaultBotProperties(parse_mode= 'HTML'))
 dp = Dispatcher()
 
 @dp.message(Command("start")) 
 async def cmd_start(message: types.Message):
-    await message.answer(f"Добро пожаловать! Отправьте мне комманду <b>/anal</b> с ссылкой на товар <b>/Taobao</b> или <b>Temu</b>. \n Или же команду <b>/pindname</b> с названием товара Pinduoduo ,и я сделаю анализ и помогу вам с выбором")
+   await message.answer(
+    "👋 <b>Привет! Я ваш персональный ассистент по покупкам в Китае.</b>\n\n"
+    "Я помогу проанализировать товары и выбрать лучшее качество. Вот что я умею:\n\n"
+    "📸 <b>Поиск по фото (Taobao):</b>\n"
+    "Отправьте команду <code>/taoimg</code>, а затем — <b>фотографию</b> товара. "
+    "Я найду его и проведу глубокий анализ.\n\n"
+    "🔍 <b>Поиск по названию (Pinduoduo):</b>\n"
+    "Отправьте команду <code>/pindname</code> вместе с <b>названием</b> товара. "
+    "Мой ИИ проанализирует карточки и поможет с выбором.\n\n"
+    "💡 <i>Просто выберите нужную команду и следуйте инструкциям!</i>",
+    parse_mode="HTML"
+)
+
+
+
+@dp.message(Command("cancel"))
+@dp.message(F.text == "❌ Отмена") # Ловим текст с кнопки
+async def cancel_handler(message: types.Message, state: FSMContext):
+    current_state = await state.get_state()
+    if current_state is None:
+        await message.answer("Нет активных действий.", reply_markup=ReplyKeyboardRemove())
+        return
+    await state.clear()
+    # ReplyKeyboardRemove() убирает кнопку отмены и возвращает обычную клаву
+    await message.answer("Действие отменено.", reply_markup=ReplyKeyboardRemove())
+
 
 @dp.message(Command("help"))
 async def cmd_help(message: types.Message):
     await message.answer(
-    "<b>🔍 Инструкция по анализу товара на Маркетплейсах: Pinduoduo, Taobao, Temu</b>\n\n"
-    "Чтобы получить детальный отчет, отправьте команду в формате:\n"
-    "<code>/anal https://mobile.yangkeduo.com</code> -- для Taobao или Temu\n\n"
-    "<code>/pindname 美式复古水洗弯刀牛仔</code> -- для Pinduoduo\n\n"
-    "<b>📊 Пример того, что вы получите:</b>\n"
-    "━━━━━━━━━━━━━━━━━━\n"
-    "<b>📦 Название:</b> Худи ZARA (oversize)\n"
-    "<b>💰 Цена:</b> 4 900 ₸ / 70 ¥\n"
-    "<b>📈 Заказов:</b> 1 000+\n"
-    "<b>⭐️ Рейтинг:</b> 4.5 / 5.0\n"
-    "<b>💬 Отзывов:</b> 500 шт.\n\n"
-    "<b>💡 Советы покупателей:</b>\n"
-    "• <i>«Ткань плотная, идет размер в размер»</i>\n"
-    "• <i>«Цвет как на фото, рекомендую к покупке»</i>\n\n"
-    "<b>✅ Вердикт:</b> Рекомендуется к покупке"
-)
+        "<b>🤖 Товарный AI-бот</b>\n"
+        "Помогаю находить и анализировать товары с китайских маркетплейсов.\n\n"
+
+        "<b>🔎 Поиск товара:</b>\n"
+        "━━━━━━━━━━━━━━━━━━\n"
+        "• <b>/pindname название</b>\n"
+        "  Поиск товара по названию (Pinduoduo)\n"
+        "  <code>/pindname 美式复古水洗弯刀牛仔</code>\n\n"
+
+        "• <b>/taoimg</b>\n"
+        "  Поиск товара по фото (Taobao)\n"
+        "  После команды просто отправьте изображение.\n\n"
+
+        "<b>🧠 AI функции:</b>\n"
+        "━━━━━━━━━━━━━━━━━━\n"
+        "• Просто отправьте текст — я отвечу и помогу разобраться.\n"
+        "• Отправьте фото с подписью — сделаю анализ изображения.\n\n"
+
+        "<b>📊 После выбора товара вы получите:</b>\n"
+        "• Название\n"
+        "• Цену\n"
+        "• Количество заказов\n"
+        "• Рейтинг\n"
+        "• Отзывы\n"
+        "• Рекомендацию к покупке\n\n"
+
+        "<b>❌ Отмена действия:</b>\n"
+        "• /cancel — остановить текущий поиск\n\n"
+
+        "🚀 Бот находится в стадии активной разработки."
+    )
 
 @dp.message(Command('pindname'))
-async def cmd_pindname(message: types.Message, command: CommandObject):
+async def cmd_pindname(message: types.Message, command: CommandObject, state: FSMContext):
     await bot.send_chat_action(message.chat.id, action="typing")
     # 2. Идем в API
     if command.args is None:
         await message.answer("Пожалуйста, отправьте команду в формате: /pindname <название товара>", parse_mode= None)
         return
-    product = await pdd_service.fetch_product(command.args)
-    
-    if product:
-        photo_url = None
-        if product.get('image'):
-            photo_url = product['image']
-            product.pop('image') 
-        response = await client_groq.product_analysis(
-        user_id=message.from_user.id,
-        product_data=product)
-        try:
-            await message.answer_photo(photo_url)
-        except TelegramBadRequest:
-            # Если фото не загрузилось, просто игнорируем или пишем лог
-            await message.answer(
-                "⚠️ Изображение недоступно", 
-                parse_mode=None)
-            print(f"Не удалось загрузить фото")
-        try:
-            await message.answer(response, parse_mode="Markdown")
-        except Exception:
-            await message.answer(response, parse_mode=None)
+    products = await pdd_service.fetch_product(command.args)
+    if products and isinstance(products, list):
+        # Сохраняем список и индекс в FSM
+        await state.update_data(products=products, current_index=0)
+        # Устанавливаем состояние поиска (чтобы калбэки понимали, в каком контексте работают)
+        await state.set_state(SearchState.waiting_for_photo) 
+        # Показываем первый товар через общую функцию
+        await show_product_selection(message, products[0], 0)
     else:
-        await message.answer("Ничего не нашел, возможно вы отправили некорректное название или же произошла ошибка от серверной части. Попробуйте еще раз или отправьте ссылку на товар с Taobao или Temu для анализа.")
+        await message.answer("Ничего не нашел, возможно вы отправили некорректное название или же произошла ошибка от серверной части. Попробуйте еще раз или отправьте фото на товар с Taobao для анализа.")
 
 
 @dp.message(Command('anal'))
 async def cmd_anal(message: types.Message, command: CommandObject):
     await bot.send_chat_action(message.chat.id, action="typing")
-    response = await client_groq.get_response(
-        user_id=message.from_user.id,
-        text=message.md_text,
-    )
-    
+
     url = None
     entities = message.entities or []
 
@@ -98,7 +125,10 @@ async def cmd_anal(message: types.Message, command: CommandObject):
         await message.answer("Пожалуйста, отправьте команду в формате: /anal <ссылка на товар>", parse_mode= None)
         return
     if not url.startswith("http"):
-        await message.answer(f"Похоже, <b>{html.quote(url)}</b> не является ссылкой. Проверьте формат.")
+        try:
+            await message.answer(f"Похоже, <b>{url}</b> не является ссылкой. Проверьте формат.")
+        except:
+            await message.answer(f"Похоже, {url} не является ссылкой. Проверьте формат.", parse_mode= None)
         return
 
     await message.answer('-- МЕТОД АНАЛИЗА ВСЕ ЕЩЕ В РАЗРАБОТКЕ, ВЕРНИТЕСЬ ПОЗЖЕ ЛИБО ВОСПОЛЬЗУЙТЕСЬ /pindname для анализа товаров с PINDUODUO --')
@@ -109,22 +139,70 @@ async def cmd_clear_context(message: types.Message):
     await message.reply('-- Память ИИ сброшена --')
     await client_groq.clear_context(user_id=message.from_user.id)
 
-@dp.message(F.text)
-async def handle_message(message: types.Message):
-    await bot.send_chat_action(message.chat.id, action="typing")
-    # Отправляем запрос в Groq
-    response = await client_groq.get_response(
-        user_id=message.from_user.id,
-        text=message.md_text,
+@dp.message(Command("taoimg"))
+async def cmd_taoimg(message: types.Message, state: FSMContext):
+    # Создаем кнопку отмены
+    kb = [
+        [KeyboardButton(text="❌ Отмена")]
+    ]
+    keyboard = ReplyKeyboardMarkup(
+        keyboard=kb,
+        resize_keyboard=True, # Делает кнопки маленькими и аккуратными
+        one_time_keyboard=True # Кнопка скроется после одного нажатия
     )
 
+    await message.answer(
+        "Отлично! Теперь отправьте фото товара.\nИли нажмите кнопку ниже для отмены:",
+        reply_markup=keyboard # Показываем кнопки
+    )
+    await state.set_state(SearchState.waiting_for_photo)
+
+
+@dp.message(SearchState.waiting_for_photo, F.photo | F.document.mime_type.startswith("image/"))
+async def tao_img_handler(message: types.Message, state: FSMContext, bot: Bot): # Добавили state
+    await message.answer("Ищу товары... подождите.")
+    await bot.send_chat_action(message.chat.id, action="typing")
+    # 1. Получаем список из 10 товаров
+        # 1. Получаем file_id
+    if message.photo:
+        file_id = message.photo[-1].file_id
+    else:
+        file_id = message.document.file_id
+
     try:
-        await message.answer(response, parse_mode="Markdown")
-    except Exception:
-        await message.answer(response, parse_mode=None)
+        # 3. Скачиваем файл в оперативную память (BytesIO)
+        file = await bot.get_file(file_id)
+        file_bytes = await bot.download_file(file.file_path)
+
+        # Теперь передаем в сервис
+        products = await tao_service.tao_imginfo(cloud_name = config.cloud_name.get_secret_value(),
+                                                 upload_preset="telegram_upload",
+                                                 img=file_bytes.read())
+
+        
+        if not products:
+            await message.answer("Ничего не нашел. Попробуйте еще раз с другой фотографией")
+            await state.clear()
+            return
+        
+        # 2. Сохраняем всё в состояние
+        await state.update_data(products=products, current_index=0)
+    
+        # 3. Показываем первый товар
+        await show_product_selection(message, products[0], 0)
+
+    except Exception as e:
+        await message.answer(f"Произошла ошибка при обработке изображения: {e}")
+        await state.clear()
+
+
+# Добавьте этот обработчик, чтобы ловить мусор
+@dp.message(SearchState.waiting_for_photo)
+async def tao_invalid_handler(message: types.Message):
+    await message.answer("Пожалуйста, отправьте фото. Чтобы отменить поиск, используйте /cancel")
 
 @dp.message(F.photo | F.document.mime_type("image/*"))
-async def handle_photo(message: types.Message, bot: Bot):
+async def ai_img_handler(message: types.Message, bot: Bot):
     await bot.send_chat_action(message.chat.id, action="typing")
 
     if message.photo:
@@ -154,8 +232,107 @@ async def handle_photo(message: types.Message, bot: Bot):
     except Exception:
         await message.answer(response, parse_mode=None)
 
+
+# -------------                          ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ --------
+
+# --- ФУНКЦИЯ ОТРИСОВКИ ТОВАРА ---
+async def show_product_selection(message: types.Message, product: dict, index: int):
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [
+            InlineKeyboardButton(text="✅ Да, это он", callback_data="confirm_prod"),
+            InlineKeyboardButton(text="❌ Нет, дальше", callback_data="next_prod")
+        ],
+        [InlineKeyboardButton(text="Отмена", callback_data="cancel_search")]
+    ])
+    photo_url = product.get('image')
+    product_name = product.get('title', 'Unknown')
+    product_link = product.get('link', 'not-found')
+    text = f'Название: {product_name}/n\
+            Ссылка: {product_link}\n\nЭто тот товар, который вы искали?'
+    try:
+        await message.answer_photo(photo_url, reply_markup=kb, caption= text, parse_mode=None)
+    except TelegramBadRequest:
+        # Если фото не загрузилось, просто игнорируем или пишем лог
+        await message.answer(
+            "⚠️ Изображение недоступно", 
+            parse_mode=None)
+        print(f"Не удалось загрузить фото")
+        await message.answer(text, reply_markup=kb, parse_mode= None)
+
+async def set_commands(bot: Bot):
+    commands = [
+        BotCommand(command="pindname", description="Поиск товара по названию (Pinduoduo)"),
+        BotCommand(command="taoimg", description="Поиск товара по фото (Taobao)"),
+        BotCommand(command="help", description="Справка по боту"),
+        BotCommand(command="cancel", description="Отменить текущее действие"),
+    ]
+    await bot.set_my_commands(commands)
+# ---------------                         CALLBACKS ------------
+
+
+# --- ОБРАБОТЧИК КНОПКИ "НЕТ, ДАЛЬШЕ" ---
+@dp.callback_query(F.data == "next_prod")
+async def next_product(callback: types.CallbackQuery, state: FSMContext):
+    data = await state.get_data()
+    products = data.get('products', [])
+    new_index = data.get('current_index', 0) + 1
+    
+    if new_index < len(products):
+        await state.update_data(current_index=new_index)
+        # Редактируем старое сообщение, чтобы не спамить новыми
+        await callback.message.delete()
+        await show_product_selection(callback.message, products[new_index], new_index)
+    else:
+        await callback.message.answer("Это были все найденные товары. Попробуйте другое фото.")
+        await state.clear()
+    await callback.answer()
+
+# --- ОБРАБОТЧИК КНОПКИ "ДА, ОН" ---
+@dp.callback_query(F.data == "confirm_prod")
+async def confirm_product(callback: types.CallbackQuery, state: FSMContext):
+    await callback.answer()
+    data = await state.get_data()
+    product = data['products'][data['current_index']]
+    
+    await callback.message.answer(f"Отлично! Начинаю глубокий анализ товара")
+    await bot.send_chat_action(callback.message.chat.id, action="typing")
+    market = product.get('market')
+    if market == 'Pinduoduo':
+        response = await client_groq.product_analysis(
+            user_id=callback.message.from_user.id,
+            product_data=product, market=market)
+    elif market == 'Taobao':
+        details = await TaobaoService.get_item_detail(product['id'], product['idStr'])
+        response = await client_groq.product_analysis(
+            user_id=callback.message.from_user.id,
+            product_data=details, market=market)
+    if len(response) > 4096:
+        for x in range(0, len(response), 4096):
+            await callback.message.answer(response[x:x+4096])
+    else:
+        try:
+            await callback.message.answer(response, parse_mode= 'Markdown')
+        except:
+            await callback.message.answer(response, parse_mode=None)
+    await state.clear()
+
+@dp.message(F.text)
+async def ai_message_handler(message: types.Message):
+    await bot.send_chat_action(message.chat.id, action="typing")
+    # Отправляем запрос в Groq
+    response = await client_groq.get_response(
+        user_id=message.from_user.id,
+        text=message.md_text,
+    )
+
+    try:
+        await message.answer(response, parse_mode="Markdown")
+    except Exception:
+        await message.answer(response, parse_mode=None)
+
 # Запуск процесса поллинга новых апдейтов
 async def main():
+    await set_commands(bot)  
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
