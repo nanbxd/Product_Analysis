@@ -99,9 +99,7 @@ class TaobaoService:
         logging.info(f"Переключились на API ключ №{self.current_key_idx}")
 
     async def tao_imginfo(self, cloud_name, upload_preset, img: bytes):
-        print(img)
         online_img = await self._getwebimg(cloud_name=cloud_name,upload_preset=upload_preset,img_bytes=img)
-        print(online_img) 
         params = {"imgUrl": online_img, "pageSize": "10"}
 
         for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан

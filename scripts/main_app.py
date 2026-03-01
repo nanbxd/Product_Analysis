@@ -302,7 +302,7 @@ async def confirm_product(callback: types.CallbackQuery, state: FSMContext):
             user_id=callback.message.from_user.id,
             product_data=product, market=market)
     elif market == 'Taobao':
-        details = await TaobaoService.get_item_detail(product['id'], product['idStr'])
+        details = await tao_service.get_item_detail(product['id'], product['idStr'])
         response = await client_groq.product_analysis(
             user_id=callback.message.from_user.id,
             product_data=details, market=market)

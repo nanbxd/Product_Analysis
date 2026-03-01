@@ -75,16 +75,17 @@ class GroqAI:
         
 
     async def product_analysis(self, user_id: int, product_data: dict, market: str = None) -> str:
+        print(product_data)
         if user_id not in self.history:
             await self.clear_context(user_id)
         if market == 'Pinduoduo':
             command = '/pindname'
             analyse_promt = pinduo_analyse_promt
         elif market == 'Taobao':
-            command == '/taoimg'
+            command = '/taoimg'
             analyse_promt = taobao_analyse_promt
         else:
-            command == 'для анализа'
+            command = 'для анализа'
             analyse_promt = default_analyse_prompt
         # Формируем сообщение с данными товара
         product_message = {
@@ -102,7 +103,7 @@ class GroqAI:
             response = completion.choices[0].message.content
         
             # Записываем в историю запрос и ответ
-            self.history[user_id].append({"role": "user", "content": f"[Анализ товара]: {product_data['title']}"})
+            self.history[user_id].append({"role": "user", "content": f"[Анализ товара]: {product_data.get('title', 'тут должно было быть название товара')}"})
             self.history[user_id].append({"role": "assistant", "content": response})
         
             return response
