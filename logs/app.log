@@ -38,3 +38,908 @@
 2026-03-02 21:20:43,909 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
 2026-03-02 21:20:45,484 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
 2026-03-02 21:20:45,663 [INFO] aiogram.event: Update id=185365098 is handled. Duration 1755 ms by bot id=8729550925
+2026-03-02 22:51:24,708 [INFO] __main__: Приложение запущено
+2026-03-02 22:51:27,159 [INFO] aiogram.dispatcher: Start polling
+2026-03-02 22:51:27,317 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 22:51:27,523 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 22:51:27,529 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 22:51:28,031 [INFO] aiogram.event: Update id=185365099 is not handled. Duration 511 ms by bot id=8729550925
+2026-03-02 22:51:28,032 [ERROR] aiogram.event: Cause exception while process update id=185365099 by bot id=8729550925
+AuthenticationError: invalid username-password pair
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\main_app.py", line 138, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\limits.py", line 21, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 444, in on_connect_check_health
+    auth_response = await self.read_response()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 102, in _read_response
+    raise error
+redis.exceptions.AuthenticationError: invalid username-password pair
+2026-03-02 22:51:28,254 [INFO] aiogram.event: Update id=185365100 is not handled. Duration 733 ms by bot id=8729550925
+2026-03-02 22:51:28,255 [ERROR] aiogram.event: Cause exception while process update id=185365100 by bot id=8729550925
+AuthenticationError: invalid username-password pair
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\main_app.py", line 138, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\limits.py", line 21, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 444, in on_connect_check_health
+    auth_response = await self.read_response()
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 102, in _read_response
+    raise error
+redis.exceptions.AuthenticationError: invalid username-password pair
+2026-03-02 22:52:58,800 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-02 22:52:58,806 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-02 22:52:58,807 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-02 22:52:59,066 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 22:53:17,465 [INFO] __main__: Приложение запущено
+2026-03-02 22:53:19,956 [INFO] aiogram.dispatcher: Start polling
+2026-03-02 22:53:20,103 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 22:53:36,788 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 22:53:39,267 [INFO] aiogram.event: Update id=185365101 is handled. Duration 2481 ms by bot id=8729550925
+2026-03-02 22:53:40,204 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-02 22:53:40,376 [INFO] aiogram.event: Update id=185365102 is handled. Duration 176 ms by bot id=8729550925
+2026-03-02 22:53:43,242 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 22:53:44,810 [INFO] aiogram.event: Update id=185365103 is handled. Duration 1572 ms by bot id=8729550925
+2026-03-02 22:54:03,570 [INFO] __main__: Пользователь 7812309006 отправил фото для анализа Taobao
+2026-03-02 22:54:08,945 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-02 22:54:12,945 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772474047/qrpcqgcbyrkp755mjuqr.jpg&pageSize=10, статус: 200
+2026-03-02 22:54:12,947 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-02 22:54:13,393 [INFO] aiogram.event: Update id=185365104 is handled. Duration 9840 ms by bot id=8729550925
+2026-03-02 22:54:16,731 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-02 22:54:19,443 [INFO] TaobaoService: Taobao детальная инфа запрос: https://taobao-datahub.p.rapidapi.com/item_detail?itemId=857153563430&itemIdStr=dmlVWFUvcmhRZXBLbFgrVkhKN0lhaE1xMThzQmFwMW8wNXhsNzV0enQxb0w4SExqelpCK2NJU1k5aHVRSGp1UW5PSW83WDlpVGFwZVcrdFZkbWNTUnVIZmEvYnpWWmhrZkZTWmVlVUV0aWxwcVg0YWFPcHNVUkg0QTZJZUJuZXdiMDUyakcxWTBvOFB1aUVVOGdHUi94b2hsVmF1UXA2aXo3YlFlVmpxTjBVL0JHQ0JRZ2lWWVAraVVBamhpdlhJWTBmT2xFUXpGaXhQU3JBdUlnWDdqRTJmYlZndXZLZDROTUJoWTRxRStKZjdDNGU4Vkc5Mm9sWVhDTlJqM3JCaVVNckJMYWsrMDZ0ajBTUVQ5bVZIRjY0clIvazQ5cGYwbmZPMTlDWVRqcjByS05FYjJjQkRIZ0NQWHd6c2s4QWZEYisxa1ZrdisyUk16ZnlqZldTZlFpemF2TlRac1U1NGNORVZabEl5em9rOHF0aEtJQmVUdGZBWEU2UHBDRm4waU83djMzNjUvT1AyK3lRS04xRklmdTBHdmJqdExPUlBZdk1YR0hNQmtWR2ZqcTl1QUIvQ0pGQWlrc2dOd3Y2eGVKZUkxZllLMEhGUmk0RHBRUSt1TWlKUDk0Y04zMWZiRStVbDYwVGd5MXNpaS9PdklKZDZsRDhaOG9GaWNkV2ZQV1lSM0FZcXFZVlMreDdzSm5ubVZSS3FoY3NqdThxbWhiNFU0NU5PaVVXL05KejB0TkhSTmtJVjNIQmtYMjVJMnFyMFdPd2VjZ1lMbmdxV0dmNDFXbmp5bUc0bjV3WkpGR05NL0x3bWVwcVBIUFRPM3JXdFM3cEIzcy9aenV6VTE0dGdrT1lrRXFtMzBpbHV2ZTFrWkd1RWwxVTczbWlER0NZVjNBUXIwajQ9, статус: 200
+2026-03-02 22:54:19,444 [INFO] TaobaoService: Taobao детальная инфа ответ (первые 500 символов): {'result': {'status': {'data': 'error', 'code': 205, 'msg': {'data-error': 'request successfully formed, but no results were found'}, 'endpoint': 'item_detail', 'params': {'itemIdStr': 'AVYGx3Jcgf47N9wj8GUJvKFvtn-xJKwpzcOnydbqgNtJB', 'itemId': '857153563430', 'areaId': ''}}}}
+2026-03-02 22:54:22,035 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 22:54:22,866 [INFO] aiogram.event: Update id=185365105 is handled. Duration 6137 ms by bot id=8729550925
+2026-03-02 22:54:36,049 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-02 22:54:36,643 [INFO] aiogram.event: Update id=185365106 is handled. Duration 596 ms by bot id=8729550925
+2026-03-02 22:54:49,327 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 22:54:49,960 [INFO] aiogram.event: Update id=185365107 is handled. Duration 661 ms by bot id=8729550925
+2026-03-02 22:54:57,975 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 22:55:01,342 [INFO] aiogram.event: Update id=185365108 is handled. Duration 3368 ms by bot id=8729550925
+2026-03-02 22:55:08,532 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 22:55:09,152 [INFO] aiogram.event: Update id=185365109 is handled. Duration 621 ms by bot id=8729550925
+2026-03-02 23:01:08,533 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-02 23:01:08,538 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-02 23:01:08,539 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-02 23:01:08,807 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 23:01:09,258 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000207587C8830>
+2026-03-02 23:01:46,964 [INFO] __main__: Приложение запущено
+2026-03-02 23:01:48,849 [INFO] aiogram.dispatcher: Start polling
+2026-03-02 23:01:49,000 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 23:01:51,304 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:01:52,687 [INFO] aiogram.event: Update id=185365110 is handled. Duration 1385 ms by bot id=8729550925
+2026-03-02 23:02:01,901 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-02 23:02:01,906 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-02 23:02:01,907 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-02 23:02:02,163 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 23:11:26,166 [INFO] __main__: Приложение запущено
+2026-03-02 23:11:28,298 [INFO] aiogram.dispatcher: Start polling
+2026-03-02 23:11:28,432 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 23:11:41,765 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 23:11:42,913 [INFO] aiogram.event: Update id=185365111 is handled. Duration 1149 ms by bot id=8729550925
+2026-03-02 23:11:45,994 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-02 23:11:46,271 [INFO] aiogram.event: Update id=185365112 is handled. Duration 278 ms by bot id=8729550925
+2026-03-02 23:11:47,341 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 23:11:47,644 [INFO] aiogram.event: Update id=185365113 is handled. Duration 304 ms by bot id=8729550925
+2026-03-02 23:11:49,290 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-02 23:11:49,469 [INFO] aiogram.event: Update id=185365114 is handled. Duration 180 ms by bot id=8729550925
+2026-03-02 23:11:50,852 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 23:11:51,166 [INFO] aiogram.event: Update id=185365115 is handled. Duration 315 ms by bot id=8729550925
+2026-03-02 23:12:01,316 [INFO] __main__: Пользователь 7812309006 отправил фото для анализа Taobao
+2026-03-02 23:12:04,728 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-02 23:12:08,078 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772475123/nssx6jfu6wsc5xaexzqs.jpg&pageSize=10, статус: 200
+2026-03-02 23:12:08,079 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-02 23:12:08,264 [INFO] aiogram.event: Update id=185365116 is handled. Duration 6951 ms by bot id=8729550925
+2026-03-02 23:12:26,656 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:12:26,882 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:12:27,288 [INFO] aiogram.event: Update id=185365117 is handled. Duration 632 ms by bot id=8729550925
+2026-03-02 23:12:32,623 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:12:32,772 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:12:33,177 [INFO] aiogram.event: Update id=185365118 is handled. Duration 555 ms by bot id=8729550925
+2026-03-02 23:12:34,426 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:12:34,604 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:12:34,952 [INFO] aiogram.event: Update id=185365119 is handled. Duration 531 ms by bot id=8729550925
+2026-03-02 23:12:37,145 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-02 23:12:39,339 [INFO] TaobaoService: Taobao детальная инфа запрос: https://taobao-datahub.p.rapidapi.com/item_detail?itemId=990502068642&itemIdStr=RTM4TnBKNWVUMXhsaEhoOVp4MUtuT1JWOTBaSEdVS0pQUVpmWVFWYlAzOHkycDNhbzhqUDNNVDhGOCtNaFEwSDVLYVhJdmdleVZzdFhsNk12WTdDVGFlR280TENnTkFiYm5tR2lRMDBrU0hubE01amlZYTJSci9lMmZlRG94TkNrOFQrRU5oS2h2Q1lyamNCL1NadUFZM1pYaURZQjNEUGs2WkpYUVJwZEJsSHJPRFpVM1NVSHNtTWFoRTh6aGRsam9QVG9SMHdLY2VWYjBYVVJ1RHlocDFOZGtBRmh2aXk2M1kra0ZSVGJKN1R6V3BVYWhLQU1xY2dYWmtGQVVUYnhJbThuOC9yalVTZjBZeUl6SXpyZm9DRFE4eXFkSkFhK1QzR1E5anc0Q2ZQY0lFMENBY3RCT3diY3pDMFB5aWZKTVo5ZGo0Umt1cDVGYVpUUkoxbUdYYTZ0bHFCaVJDT2xWM25tNWkwUmJqZ2VXUjI5Z0E0WWVqRTFKTlpubTllZ3U5K1JaaEtpOG9ybzdORDlnVjZldFRPWHYwN2FFUDFsSkdVTXM5aVNBb1JFS01ZNGJlTWZaTDk0aDg2SjZSTTZsTnBaZ0FvbTRqWjJsd1Ryc2FLZi95T05uUm5TSjhuYUNOZ1FrSTY0by9ZdDZRU1RQWk96Z0hWQWkxSzFVcm1DeXhKd0FsaWhNQVMxUDFHT09FM3pVMzFSVVBLa0xkNS9MLzBqUXNSRmlJYlRvMklRQXp5N1dVMkI1TFcvRW1BdzN4UEI3Vm53cml0NldQSmc4ZkR3K3kyYXNnQnp6dlFwNHR5WnNkVVJRdS9ZSE5lMW9TNThnQ2V1VEdVTE8waWVDN0V0TE5IdjJ2NlVzaHFjY2lMazB4SDBWbFVsZzFqaGd5MHdUMEF2RnVYQW1PWkl4Zm9Xc2h4YzBWL2NVMy8%3D, статус: 200
+2026-03-02 23:12:39,340 [INFO] TaobaoService: Taobao детальная инфа ответ (первые 500 символов): {'result': {'status': {'data': 'error', 'code': 205, 'msg': {'data-error': 'request successfully formed, but no results were found'}, 'endpoint': 'item_detail', 'params': {'itemIdStr': 'dN0Orqxfbf3Z09dyZMhobJSet3-obB54Mue9m9BXK2fJV', 'itemId': '990502068642', 'areaId': ''}}}}
+2026-03-02 23:12:40,472 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 23:12:40,751 [INFO] aiogram.event: Update id=185365120 is handled. Duration 3607 ms by bot id=8729550925
+2026-03-02 23:12:55,727 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-02 23:12:55,926 [INFO] aiogram.event: Update id=185365121 is handled. Duration 203 ms by bot id=8729550925
+2026-03-02 23:13:05,850 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:13:06,336 [INFO] aiogram.event: Update id=185365122 is handled. Duration 487 ms by bot id=8729550925
+2026-03-02 23:13:08,148 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:13:08,826 [INFO] aiogram.event: Update id=185365123 is handled. Duration 678 ms by bot id=8729550925
+2026-03-02 23:13:09,942 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:13:10,409 [INFO] aiogram.event: Update id=185365124 is handled. Duration 470 ms by bot id=8729550925
+2026-03-02 23:13:11,239 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:13:11,679 [INFO] aiogram.event: Update id=185365125 is handled. Duration 442 ms by bot id=8729550925
+2026-03-02 23:13:12,559 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:13:13,024 [INFO] aiogram.event: Update id=185365126 is handled. Duration 466 ms by bot id=8729550925
+2026-03-02 23:14:01,924 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:14:02,577 [INFO] aiogram.event: Update id=185365127 is handled. Duration 654 ms by bot id=8729550925
+2026-03-02 23:14:39,615 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:14:40,048 [INFO] aiogram.event: Update id=185365128 is handled. Duration 434 ms by bot id=8729550925
+2026-03-02 23:15:27,232 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:15:29,936 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%B0%D1%8F+%D1%85%D0%BE%D1%80%D0%BE%D1%88%D0%B0%D1%8F+%D1%84%D1%83%D1%82%D0%B1%D0%BE%D0%BB%D0%BA%D0%B0+%D1%81+%D1%87%D0%B5%D1%80%D0%BD%D1%8B%D0%BC+%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D0%BC&sortType=default, статус: 200
+2026-03-02 23:15:29,941 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 791555946938, 'goods_name': 'vivo iQOO Z10Turbo+新品电竞手机 天玑9400+ 自研电竞芯片Q2', 'market_price': 300000, 'default_price': 229900, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-11-25/98f03e3e5b15db5709bfba2ced350ed1.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-11-25/98f03e3e5b15db5709bfba2ced350ed1.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已抢9500+件', 'rec': '{"score":"0.21359685063362122","realRecTypes
+2026-03-02 23:15:29,942 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-02 23:15:30,554 [INFO] aiogram.event: Update id=185365129 is handled. Duration 3324 ms by bot id=8729550925
+2026-03-02 23:15:35,251 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:15:35,435 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:15:36,895 [INFO] aiogram.event: Update id=185365130 is handled. Duration 1645 ms by bot id=8729550925
+2026-03-02 23:15:38,154 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:15:38,319 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:15:39,644 [INFO] aiogram.event: Update id=185365131 is handled. Duration 1490 ms by bot id=8729550925
+2026-03-02 23:15:40,673 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:15:40,830 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:15:42,163 [INFO] aiogram.event: Update id=185365132 is handled. Duration 1491 ms by bot id=8729550925
+2026-03-02 23:15:43,419 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:15:43,584 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:15:46,706 [INFO] aiogram.event: Update id=185365133 is handled. Duration 3289 ms by bot id=8729550925
+2026-03-02 23:15:55,629 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:15:55,770 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:15:56,958 [INFO] aiogram.event: Update id=185365134 is handled. Duration 1331 ms by bot id=8729550925
+2026-03-02 23:15:59,359 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-02 23:16:01,278 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 23:16:01,470 [INFO] aiogram.event: Update id=185365135 is handled. Duration 2112 ms by bot id=8729550925
+2026-03-02 23:16:22,964 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-02 23:16:22,969 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-02 23:16:22,970 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-02 23:16:23,231 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 23:16:23,691 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000012C589E8980>
+2026-03-02 23:16:23,693 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000012C589E8EC0>
+2026-03-02 23:48:07,555 [INFO] __main__: Приложение запущено
+2026-03-02 23:48:09,818 [INFO] aiogram.dispatcher: Start polling
+2026-03-02 23:48:09,957 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 23:48:10,100 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-02 23:48:10,580 [INFO] aiogram.event: Update id=185365136 is handled. Duration 481 ms by bot id=8729550925
+2026-03-02 23:48:39,309 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:48:40,122 [INFO] aiogram.event: Update id=185365137 is handled. Duration 818 ms by bot id=8729550925
+2026-03-02 23:49:12,565 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:49:13,076 [INFO] PinduoduoService: translate сработал
+2026-03-02 23:49:16,157 [INFO] PinduoduoService: Результат перевода: 简单又好看的黑色T恤
+2026-03-02 23:49:19,080 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%E7%AE%80%E5%8D%95%E5%8F%88%E5%A5%BD%E7%9C%8B%E7%9A%84%E9%BB%91%E8%89%B2T%E6%81%A4&sortType=default, статус: 200
+2026-03-02 23:49:19,084 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 757444974963, 'goods_name': '短袖T恤潮流宽松半袖夏季百搭ins圆领上衣五分袖学生', 'market_price': 1990, 'default_price': 990, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-06-05/6efeb7fbbaeced590fb3dc0a8d379bdb.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-06-05/6efeb7fbbaeced590fb3dc0a8d379bdb.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已拼5997件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag': '上衣畅销榜第6名', 'tag_list'
+2026-03-02 23:49:19,085 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-02 23:49:19,791 [INFO] aiogram.event: Update id=185365138 is handled. Duration 7229 ms by bot id=8729550925
+2026-03-02 23:49:28,139 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:49:28,285 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:49:29,725 [INFO] aiogram.event: Update id=185365139 is handled. Duration 1587 ms by bot id=8729550925
+2026-03-02 23:49:35,122 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:49:35,263 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:49:36,218 [INFO] aiogram.event: Update id=185365140 is handled. Duration 1097 ms by bot id=8729550925
+2026-03-02 23:49:37,630 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 23:49:37,809 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 23:49:39,303 [INFO] aiogram.event: Update id=185365141 is handled. Duration 1674 ms by bot id=8729550925
+2026-03-02 23:49:41,168 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-02 23:49:43,660 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 23:49:44,013 [INFO] aiogram.event: Update id=185365142 is handled. Duration 2847 ms by bot id=8729550925
+2026-03-02 23:49:48,951 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 23:49:49,258 [INFO] aiogram.event: Update id=185365143 is handled. Duration 307 ms by bot id=8729550925
+2026-03-02 23:49:52,856 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 23:49:53,167 [INFO] aiogram.event: Update id=185365144 is handled. Duration 312 ms by bot id=8729550925
+2026-03-02 23:49:57,864 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-02 23:49:58,173 [INFO] aiogram.event: Update id=185365145 is handled. Duration 310 ms by bot id=8729550925
+2026-03-03 00:19:03,854 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 00:19:03,858 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 00:19:03,859 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 00:19:04,113 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:19:05,062 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001DC55713620>
+2026-03-03 00:26:21,986 [INFO] __main__: Приложение запущено
+2026-03-03 00:26:23,777 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 00:26:23,919 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:26:24,078 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 00:26:25,238 [INFO] aiogram.event: Update id=185365146 is handled. Duration 1161 ms by bot id=8729550925
+2026-03-03 00:33:16,353 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 00:33:16,358 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 00:33:16,358 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 00:33:16,619 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:35:05,041 [INFO] __main__: Приложение запущено
+2026-03-03 00:35:07,099 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 00:35:07,237 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:35:07,388 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 00:35:08,648 [INFO] aiogram.event: Update id=185365147 is handled. Duration 1261 ms by bot id=8729550925
+2026-03-03 00:35:34,321 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 00:35:34,719 [INFO] aiogram.event: Update id=185365148 is handled. Duration 400 ms by bot id=8729550925
+2026-03-03 00:35:47,096 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:35:49,018 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:35:49,274 [INFO] aiogram.event: Update id=185365149 is handled. Duration 2183 ms by bot id=8729550925
+2026-03-03 00:36:13,116 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:36:14,193 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:36:14,396 [INFO] aiogram.event: Update id=185365150 is handled. Duration 1286 ms by bot id=8729550925
+2026-03-03 00:36:31,497 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:36:32,515 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:36:32,739 [INFO] aiogram.event: Update id=185365151 is handled. Duration 1245 ms by bot id=8729550925
+2026-03-03 00:37:09,986 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:37:11,387 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:37:11,559 [INFO] aiogram.event: Update id=185365152 is handled. Duration 1578 ms by bot id=8729550925
+2026-03-03 00:37:21,850 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:37:22,780 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:37:22,982 [INFO] aiogram.event: Update id=185365153 is handled. Duration 1136 ms by bot id=8729550925
+2026-03-03 00:37:49,190 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:37:50,238 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:37:50,428 [INFO] aiogram.event: Update id=185365154 is handled. Duration 1242 ms by bot id=8729550925
+2026-03-03 00:38:18,979 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:38:20,063 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:38:20,261 [INFO] aiogram.event: Update id=185365155 is handled. Duration 1286 ms by bot id=8729550925
+2026-03-03 00:39:04,865 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:39:05,709 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:39:05,878 [INFO] aiogram.event: Update id=185365156 is handled. Duration 1016 ms by bot id=8729550925
+2026-03-03 00:39:12,944 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:39:13,618 [INFO] aiogram.event: Update id=185365157 is handled. Duration 677 ms by bot id=8729550925
+2026-03-03 00:42:51,194 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 00:42:51,610 [INFO] aiogram.event: Update id=185365158 is handled. Duration 419 ms by bot id=8729550925
+2026-03-03 00:43:27,421 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 00:43:27,427 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 00:43:27,428 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 00:43:27,687 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:47:20,960 [INFO] __main__: Приложение запущено
+2026-03-03 00:47:24,008 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 00:47:24,149 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:47:28,480 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 00:47:28,937 [INFO] aiogram.event: Update id=185365159 is handled. Duration 458 ms by bot id=8729550925
+2026-03-03 00:47:33,393 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 00:47:33,585 [INFO] aiogram.event: Update id=185365160 is handled. Duration 194 ms by bot id=8729550925
+2026-03-03 00:47:45,413 [INFO] __main__: Пользователь 7812309006 вызвал /start
+2026-03-03 00:47:45,604 [INFO] aiogram.event: Update id=185365161 is handled. Duration 193 ms by bot id=8729550925
+2026-03-03 00:48:00,067 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:48:00,895 [INFO] aiogram.event: Update id=185365162 is handled. Duration 830 ms by bot id=8729550925
+2026-03-03 00:48:03,393 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:48:03,661 [INFO] aiogram.event: Update id=185365163 is handled. Duration 269 ms by bot id=8729550925
+2026-03-03 00:48:06,122 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:48:06,443 [INFO] aiogram.event: Update id=185365164 is handled. Duration 322 ms by bot id=8729550925
+2026-03-03 00:48:27,810 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 00:48:27,815 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 00:48:27,816 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 00:48:28,081 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:50:14,582 [INFO] __main__: Приложение запущено
+2026-03-03 00:50:16,597 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 00:50:16,763 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:50:19,090 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:50:20,213 [INFO] aiogram.event: Update id=185365165 is handled. Duration 1125 ms by bot id=8729550925
+2026-03-03 00:50:29,181 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:50:29,463 [INFO] aiogram.event: Update id=185365166 is handled. Duration 283 ms by bot id=8729550925
+2026-03-03 00:50:38,554 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:50:38,919 [INFO] aiogram.event: Update id=185365167 is handled. Duration 366 ms by bot id=8729550925
+2026-03-03 00:50:42,717 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:50:43,003 [INFO] aiogram.event: Update id=185365168 is handled. Duration 286 ms by bot id=8729550925
+2026-03-03 00:51:37,591 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:51:38,110 [INFO] PinduoduoService: translate сработал
+2026-03-03 00:51:40,838 [INFO] PinduoduoService: Результат перевода: 橡胶阴茎，性玩具
+2026-03-03 00:51:53,156 [ERROR] PinduoduoService: Ошибка запроса к Pinduoduo: 
+2026-03-03 00:51:53,352 [INFO] aiogram.event: Update id=185365169 is handled. Duration 15762 ms by bot id=8729550925
+2026-03-03 00:54:08,042 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 00:54:08,536 [INFO] aiogram.event: Update id=185365170 is handled. Duration 494 ms by bot id=8729550925
+2026-03-03 00:54:24,331 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 00:54:24,627 [INFO] aiogram.event: Update id=185365171 is handled. Duration 297 ms by bot id=8729550925
+2026-03-03 00:55:54,659 [INFO] __main__: Пользователь 7812309006 отправил фото для анализа Taobao
+2026-03-03 00:55:58,086 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-03 00:56:02,620 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772481356/agdxuatqgzepr8smgilv.jpg&pageSize=10, статус: 200
+2026-03-03 00:56:02,621 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 00:56:03,308 [INFO] aiogram.event: Update id=185365172 is handled. Duration 8652 ms by bot id=8729550925
+2026-03-03 00:56:09,026 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 00:56:09,223 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 00:56:10,672 [INFO] aiogram.event: Update id=185365173 is handled. Duration 1647 ms by bot id=8729550925
+2026-03-03 00:56:14,006 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 00:56:15,593 [INFO] TaobaoService: Taobao детальная инфа запрос: https://taobao-datahub.p.rapidapi.com/item_detail?itemId=999143220647&itemIdStr=MGxEYW1tOWNzRnJ3L0ZqZXZWeHliVG5vYmV2cnhsUllKZEpjUlBiQkw4SytZZXRKTlJhYUY0K3NQSVVyRUJMT3ppc0t2WGNNeTFnaEhVSStvVjRseFBKaE9zVXV5WU5PY2J4L25Vazl4elRyemI0ajVxc0E5L3NIMGxZNnprVFVxT2w3bzFEMVZybE8vUS84d3N2bjZlOTFQZHBEcmhubVlDK2RvMjlFSW55SmcrVmVJdjhxL1gxMG5MellZVkU4LzczaExlejd5Yk5MdVFITmNYWE9mMXZBclpRS0NNVmdzSlNvSnRoa0pVa3VKaW80WFUzUjBXdUxHYXl1ODNrL1ZKVlloSFcyQjcxNnVKcUNyZGx0R3pCQ1l5TFJjS0tlSURBMnZHc2NJZkxEWGxZbGh2WXZBVS9wMUdFQ3kzSUhjcE0rRTdvQVJhNkdZNVR3d1dXU0YxaDhQSUhhcVNNbHllc3NONDdsWGMwSmJRMGlKTU1sR2VQTWpWcUdHb0czdEN6ZXNoN1AvcklVMER4Zkd2ZUQ3eE5qREh4YmdDNmlma0ZBV1pNRGRBL3EwQzFaU09sZE91UVZiTkRlZHRROVhuK1ZFNzRnRTV2bHV6YmY5Y3EyN21LaUVaK3dKaFZ3akdvMDNxY3lKS1JMTmQzamltUGpuN0xUQk1TMHFFKzh2aXg2ZjRVc0xJTUk5Rk1GMkl6ODFWWkZ2UzIrbjIwdi9LeG5kK0hhaU1paUNKQUdiSHUxTmRKZVBsTTUrM2VTa0tsaUVVcEsvWFdLdU5ERnRLUmtpam9ZbitwYXQ4U2RwVCsyeXAxMi9PUFpGNHdXYkFQYzE5SXBKSzV3ZkZUSVFIWmV5KzdsUS8xa3k3N0tjQUNKUk1RSnBPSGZOUnYrQzR2Ukw3LzZGbms9, статус: 200
+2026-03-03 00:56:15,595 [INFO] TaobaoService: Taobao детальная инфа ответ (первые 500 символов): {'result': {'status': {'data': 'error', 'code': 205, 'msg': {'data-error': 'request successfully formed, but no results were found'}, 'endpoint': 'item_detail', 'params': {'itemIdStr': 'BAxJ6QdS7f84rNjdZwUrmoFrte-rr2BKkfb7Y5KyadID', 'itemId': '999143220647', 'areaId': ''}}}}
+2026-03-03 00:56:16,665 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:56:16,913 [INFO] aiogram.event: Update id=185365174 is handled. Duration 2909 ms by bot id=8729550925
+2026-03-03 00:56:31,846 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 00:56:32,356 [INFO] aiogram.event: Update id=185365175 is handled. Duration 511 ms by bot id=8729550925
+2026-03-03 00:57:33,096 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 00:57:33,282 [INFO] aiogram.event: Update id=185365176 is handled. Duration 187 ms by bot id=8729550925
+2026-03-03 00:58:01,165 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:58:01,791 [INFO] aiogram.event: Update id=185365177 is handled. Duration 632 ms by bot id=8729550925
+2026-03-03 00:58:32,272 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 00:58:32,279 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 00:58:32,280 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 00:58:32,547 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:58:33,388 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000014067353A10>
+2026-03-03 00:58:33,397 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000140673A8D70>
+2026-03-03 00:58:54,726 [INFO] __main__: Приложение запущено
+2026-03-03 00:58:56,588 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 00:58:56,732 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 00:58:57,455 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 00:58:59,730 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 00:59:00,026 [INFO] aiogram.event: Update id=185365178 is handled. Duration 2577 ms by bot id=8729550925
+2026-03-03 01:00:09,042 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:00:09,318 [INFO] aiogram.event: Update id=185365179 is handled. Duration 278 ms by bot id=8729550925
+2026-03-03 01:00:14,718 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:00:15,021 [INFO] aiogram.event: Update id=185365180 is handled. Duration 305 ms by bot id=8729550925
+2026-03-03 01:00:45,761 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:00:46,275 [INFO] PinduoduoService: translate сработал
+2026-03-03 01:00:47,541 [INFO] PinduoduoService: Результат перевода: Uppercat 意大利面造型头发
+2026-03-03 01:00:49,616 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=Uppercat+%E6%84%8F%E5%A4%A7%E5%88%A9%E9%9D%A2%E9%80%A0%E5%9E%8B%E5%A4%B4%E5%8F%91&sortType=default, статус: 200
+2026-03-03 01:00:49,617 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 861003519020, 'goods_name': '排骨梳高颅顶蓬松梳子造型回形长发卷发清洁头皮按摩大弯造型梳子', 'market_price': 2000, 'default_price': 1728, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-11-25/22421712e86a9b20fa3c720943eedbb2.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-11-25/22421712e86a9b20fa3c720943eedbb2.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已拼8.5万+件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag': '排骨梳畅销榜第6名', 'ta
+2026-03-03 01:00:49,619 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 01:00:51,058 [INFO] aiogram.event: Update id=185365181 is handled. Duration 5297 ms by bot id=8729550925
+2026-03-03 01:00:58,308 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 01:00:58,456 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 01:00:59,393 [INFO] aiogram.event: Update id=185365182 is handled. Duration 1086 ms by bot id=8729550925
+2026-03-03 01:01:01,735 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 01:01:02,151 [INFO] aiogram.event: Update id=185365183 is handled. Duration 417 ms by bot id=8729550925
+2026-03-03 01:01:12,382 [INFO] aiogram.event: Update id=185365184 is not handled. Duration 1 ms by bot id=8729550925
+2026-03-03 01:01:16,698 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 01:01:16,974 [INFO] aiogram.event: Update id=185365185 is handled. Duration 276 ms by bot id=8729550925
+2026-03-03 01:03:58,547 [INFO] __main__: Пользователь 7812309006 отправил фото для анализа Taobao
+2026-03-03 01:04:01,920 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-03 01:04:06,266 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772481840/mjb8mww38nceyxmzttfx.jpg&pageSize=10, статус: 200
+2026-03-03 01:04:06,268 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 01:04:07,247 [INFO] aiogram.event: Update id=185365186 is handled. Duration 8705 ms by bot id=8729550925
+2026-03-03 01:04:21,721 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 01:04:43,073 [INFO] aiogram.event: Update id=185365187 is not handled. Duration 21353 ms by bot id=8729550925
+2026-03-03 01:04:43,074 [ERROR] aiogram.event: Cause exception while process update id=185365187 by bot id=8729550925
+UnboundLocalError: cannot access local variable 'resp' where it is not associated with a value
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\client.py", line 779, in _request
+    resp = await handler(req)
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\client.py", line 734, in _connect_and_send_request
+    conn = await self._connector.connect(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        req, traces=traces, timeout=real_timeout
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\connector.py", line 672, in connect
+    proto = await self._create_connection(req, traces, timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\connector.py", line 1239, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\connector.py", line 1580, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\connector.py", line 1313, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs, sock=sock)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1198, in create_connection
+    transport, protocol = await self._create_connection_transport(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ssl_shutdown_timeout=ssl_shutdown_timeout)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\base_events.py", line 1231, in _create_connection_transport
+    await waiter
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\scripts\api_service.py", line 263, in get_item_detail
+    async with session.get(self.product_details_url, headers=self._get_headers(), params=params, timeout=20) as resp:
+               ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\client.py", line 1510, in __aenter__
+    self._resp: _RetType = await self._coro
+                           ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\client.py", line 624, in _request
+    with timer:
+         ^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiohttp\helpers.py", line 713, in __exit__
+    raise asyncio.TimeoutError from exc_val
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\main_app.py", line 316, in confirm_product
+    details = await tao_service.get_item_detail(product['id'], product['idStr'])
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\api_service.py", line 278, in get_item_detail
+    loggerTao.error(f"Таймаут запроса к {self.host} на URL: {resp.url}")
+                                                             ^^^^
+UnboundLocalError: cannot access local variable 'resp' where it is not associated with a value
+2026-03-03 01:11:02,199 [INFO] aiogram.event: Update id=185365188 is not handled. Duration 1 ms by bot id=8729550925
+2026-03-03 01:11:03,917 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 01:11:04,178 [INFO] aiogram.event: Update id=185365189 is handled. Duration 263 ms by bot id=8729550925
+2026-03-03 01:11:08,794 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:11:09,305 [INFO] aiogram.event: Update id=185365190 is handled. Duration 512 ms by bot id=8729550925
+2026-03-03 01:11:11,598 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 01:11:12,035 [INFO] aiogram.event: Update id=185365191 is handled. Duration 438 ms by bot id=8729550925
+2026-03-03 01:11:14,445 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 01:11:14,610 [INFO] aiogram.event: Update id=185365192 is handled. Duration 168 ms by bot id=8729550925
+2026-03-03 01:11:16,155 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 01:11:16,326 [INFO] aiogram.event: Update id=185365193 is handled. Duration 173 ms by bot id=8729550925
+2026-03-03 01:11:25,293 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:11:25,682 [INFO] aiogram.event: Update id=185365194 is handled. Duration 391 ms by bot id=8729550925
+2026-03-03 01:11:39,309 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 01:11:40,586 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:11:40,925 [INFO] aiogram.event: Update id=185365195 is handled. Duration 1619 ms by bot id=8729550925
+2026-03-03 01:11:49,611 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 01:11:51,247 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:11:51,590 [INFO] aiogram.event: Update id=185365196 is handled. Duration 1983 ms by bot id=8729550925
+2026-03-03 01:12:01,096 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 01:12:01,807 [INFO] aiogram.event: Update id=185365197 is handled. Duration 716 ms by bot id=8729550925
+2026-03-03 01:12:13,981 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 01:12:16,515 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:12:16,842 [INFO] aiogram.event: Update id=185365198 is handled. Duration 2865 ms by bot id=8729550925
+2026-03-03 01:13:05,279 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:13:05,293 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:13:05,295 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:13:05,557 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:13:06,194 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000191E789FA10>
+2026-03-03 01:13:06,196 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000191E789D400>
+2026-03-03 01:21:31,729 [INFO] __main__: Приложение запущено
+2026-03-03 01:21:34,382 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:21:34,529 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:21:43,751 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:21:44,876 [INFO] aiogram.event: Update id=185365199 is handled. Duration 1127 ms by bot id=8729550925
+2026-03-03 01:22:04,472 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:22:04,957 [INFO] PinduoduoService: translate сработал
+2026-03-03 01:22:06,394 [INFO] PinduoduoService: Результат перевода: 美式宽松短款垫肩外套复古皮衣boxy男女情侣个性帅气透气通勤夹克
+2026-03-03 01:22:08,176 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%E7%BE%8E%E5%BC%8F%E5%AE%BD%E6%9D%BE%E7%9F%AD%E6%AC%BE%E5%9E%AB%E8%82%A9%E5%A4%96%E5%A5%97%E5%A4%8D%E5%8F%A4%E7%9A%AE%E8%A1%A3boxy%E7%94%B7%E5%A5%B3%E6%83%85%E4%BE%A3%E4%B8%AA%E6%80%A7%E5%B8%85%E6%B0%94%E9%80%8F%E6%B0%94%E9%80%9A%E5%8B%A4%E5%A4%B9%E5%85%8B&sortType=default, статус: 200
+2026-03-03 01:22:08,178 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 878432422754, 'goods_name': 'DM Tenacious cleanfit宽松短款垫肩外套美式复古皮衣boxy夹克男', 'market_price': 8800, 'default_price': 7880, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-12-24/eada7d1ef9ac46a158a8ef1c706e26f8.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-12-24/eada7d1ef9ac46a158a8ef1c706e26f8.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已抢3件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag': '皮衣畅销榜第7
+2026-03-03 01:22:08,180 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 01:22:08,354 [INFO] aiogram.event: Update id=185365200 is handled. Duration 3883 ms by bot id=8729550925
+2026-03-03 01:22:12,742 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 01:22:12,895 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 01:22:14,600 [INFO] aiogram.event: Update id=185365201 is handled. Duration 1859 ms by bot id=8729550925
+2026-03-03 01:22:16,356 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 01:22:16,608 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 01:22:17,084 [INFO] aiogram.event: Update id=185365202 is handled. Duration 730 ms by bot id=8729550925
+2026-03-03 01:22:18,251 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 01:22:18,511 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 01:22:18,993 [INFO] aiogram.event: Update id=185365203 is handled. Duration 745 ms by bot id=8729550925
+2026-03-03 01:22:20,203 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 01:22:20,344 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 01:22:20,664 [INFO] aiogram.event: Update id=185365204 is handled. Duration 462 ms by bot id=8729550925
+2026-03-03 01:22:21,943 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 01:22:24,537 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:22:24,837 [INFO] aiogram.event: Update id=185365205 is handled. Duration 2895 ms by bot id=8729550925
+2026-03-03 01:22:43,712 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 01:22:43,992 [INFO] aiogram.event: Update id=185365206 is handled. Duration 282 ms by bot id=8729550925
+2026-03-03 01:22:58,586 [INFO] __main__: Пользователь 7812309006 отправил фото для анализа Taobao
+2026-03-03 01:23:03,265 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-03 01:23:08,080 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772482981/yn7hdlspjg8jhgbysdub.jpg&pageSize=10, статус: 200
+2026-03-03 01:23:08,082 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 01:23:08,257 [INFO] aiogram.event: Update id=185365207 is handled. Duration 9674 ms by bot id=8729550925
+2026-03-03 01:23:12,952 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 01:23:16,167 [INFO] TaobaoService: Taobao детальная инфа запрос: https://taobao-datahub.p.rapidapi.com/item_detail?itemId=524132254056&itemIdStr=V1UyYUp0RE4xVXFDNkZNakxrbFdBN1U1LzJMc0hKSzg5TS9IZTlhSVJwclcwQlNpZTBKcVQ2b2U3dkF4dkZKRDhGVGlUYk52bTAvUGhwYTFaRlFvamt3dHFMaTF1aUJrbnJoSW1wYUErbElMWDdGaEIwR0FTMlF3UGNVRHFBSk1laVRjQW9lNCtDZ1JnYitiUFNYcDdLamV3T2dSc1J3RFlGRlhTb2VCbHJVbnYxRXhPMk1Kd2h1TkQyaVQ4a3Rxa3hmWndqbU9tcHZSSDMxMXFabDRNdlBFRTdKOHp1RWpWUVZ5SmtNcnBiTUMzNm0zRUw0UzFHRFlpYTdiMzFka3ZrazduNG4xTjlFQUNwVnNueEE1UTdyKy9KV2ZYRC9sTmlldkQzelRuS3JvRUdjY1dNMWVrUXhnd0M0a3UxUGxBcVQ1SkdQRnp1Q0xIMDdoTG9WTjR4SEFabnAxNEwwSWRQWFFRZHRVVjE4bGtPTWh4U2FBMHhJc003TEZ3dVNGRU9JWldsMzduV2FZNC9CYmVKTmhXd0RzenhCTGg5NkhjdTVtcXE3U2V4K0VHa2dZSWNGd0QvVW5PRUZ0cmUrbWpuTjdlendsUnNVUko2VXhOalR3Wi9kcUE2MHpKYjJkZ1RIQmpxSXgzNGVlbVI0Y004dUxXemRaam1Wczd3SXhSbkdSR0E1SkVZNXEwa2Vidno2MUkrZmN0ZWFLejMyME9CeGp2ODhROHAyT2ZhQjB0UzZZSW9YWStIcytxWHY0UU5YRVhUUjVsVFZPZnhIZHM3UkFKWGVqRnlydlhjZkVSbkwwNjZ5ZmdDVjI2bnFHUkw1T2syV1pCU3I1Y3lYL1h5OEo2L1JDOTdGeVRoTTVxSmJJaWVFdUlBdi82aU0rTzVVS1ZGMkxkVFF3WkFkRzVmVjRsMGpneFRaUWlVbG8%3D, статус: 200
+2026-03-03 01:23:16,169 [INFO] TaobaoService: Taobao детальная инфа ответ (первые 500 символов): {'result': {'status': {'data': 'error', 'code': 205, 'msg': {'data-error': 'request successfully formed, but no results were found'}, 'endpoint': 'item_detail', 'params': {'itemIdStr': 'aRwd2zQeTOfMDoxQjy0hD4Jhjty-70RwgQuY3q6XkORTP', 'itemId': '524132254056', 'areaId': ''}}}}
+2026-03-03 01:23:16,989 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:23:17,450 [INFO] aiogram.event: Update id=185365208 is handled. Duration 4499 ms by bot id=8729550925
+2026-03-03 01:23:43,751 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 01:23:43,935 [INFO] aiogram.event: Update id=185365209 is handled. Duration 186 ms by bot id=8729550925
+2026-03-03 01:23:52,511 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 01:23:52,811 [INFO] aiogram.event: Update id=185365210 is handled. Duration 305 ms by bot id=8729550925
+2026-03-03 01:28:22,312 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:28:22,316 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:28:22,317 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:28:22,578 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:28:23,174 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x0000027709413770>
+2026-03-03 01:28:23,176 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000002770946CD70>
+2026-03-03 01:35:29,321 [INFO] __main__: Приложение запущено
+2026-03-03 01:35:31,472 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:35:31,610 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:36:07,506 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 01:36:10,461 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:36:10,726 [INFO] aiogram.event: Update id=185365211 is handled. Duration 3229 ms by bot id=8729550925
+2026-03-03 01:36:18,530 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 01:36:18,955 [INFO] aiogram.event: Update id=185365212 is handled. Duration 429 ms by bot id=8729550925
+2026-03-03 01:36:26,543 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:36:26,941 [INFO] aiogram.event: Update id=185365213 is handled. Duration 399 ms by bot id=8729550925
+2026-03-03 01:38:05,291 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:38:05,295 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:38:05,296 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:38:05,558 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:39:00,846 [INFO] __main__: Приложение запущено
+2026-03-03 01:39:02,983 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:39:03,116 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:40:29,250 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:40:30,448 [INFO] aiogram.event: Update id=185365214 is handled. Duration 1200 ms by bot id=8729550925
+2026-03-03 01:40:45,853 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:40:45,857 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:40:45,858 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:40:46,112 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:42:37,252 [INFO] __main__: Приложение запущено
+2026-03-03 01:42:39,575 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:42:39,710 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:42:56,456 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:42:57,739 [INFO] aiogram.event: Update id=185365215 is handled. Duration 1289 ms by bot id=8729550925
+2026-03-03 01:46:19,319 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 01:46:19,760 [INFO] aiogram.event: Update id=185365216 is handled. Duration 443 ms by bot id=8729550925
+2026-03-03 01:46:29,442 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 01:46:32,471 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 01:46:32,757 [INFO] aiogram.event: Update id=185365217 is handled. Duration 3319 ms by bot id=8729550925
+2026-03-03 01:46:42,995 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 01:46:43,593 [INFO] aiogram.event: Update id=185365218 is handled. Duration 604 ms by bot id=8729550925
+2026-03-03 01:47:39,943 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:47:39,950 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:47:39,951 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:47:40,098 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:47:50,807 [INFO] __main__: Приложение запущено
+2026-03-03 01:47:53,754 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:47:53,892 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:48:39,490 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 01:48:40,919 [INFO] aiogram.event: Update id=185365219 is handled. Duration 1437 ms by bot id=8729550925
+2026-03-03 01:48:45,444 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 01:48:46,067 [INFO] aiogram.event: Update id=185365220 is handled. Duration 630 ms by bot id=8729550925
+2026-03-03 01:50:01,731 [INFO] aiogram.event: Update id=185365221 is not handled. Duration 0 ms by bot id=8729550925
+2026-03-03 01:50:01,732 [ERROR] aiogram.event: Cause exception while process update id=185365221 by bot id=8729550925
+TypeError: clearid() missing 1 required positional argument: 'id'
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\scripts\main_app.py", line 37, in cmd_start
+    await clearid()
+          ~~~~~~~^^
+TypeError: clearid() missing 1 required positional argument: 'id'
+2026-03-03 01:50:57,028 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:50:57,035 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:50:57,036 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:50:57,181 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:51:12,056 [INFO] __main__: Приложение запущено
+2026-03-03 01:51:13,886 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:51:14,036 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:51:15,333 [INFO] __main__: Пользователь 7812309006 вызвал /start
+2026-03-03 01:51:15,789 [INFO] aiogram.event: Update id=185365222 is handled. Duration 1583 ms by bot id=8729550925
+2026-03-03 01:51:23,901 [INFO] __main__: Пользователь 7812309006 вызвал /start
+2026-03-03 01:51:24,082 [INFO] aiogram.event: Update id=185365223 is handled. Duration 790 ms by bot id=8729550925
+2026-03-03 01:53:04,470 [INFO] __main__: Пользователь 7812309006 вызвал /start
+2026-03-03 01:53:04,651 [INFO] aiogram.event: Update id=185365224 is handled. Duration 812 ms by bot id=8729550925
+2026-03-03 01:53:07,235 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 01:53:07,814 [INFO] aiogram.event: Update id=185365225 is handled. Duration 588 ms by bot id=8729550925
+2026-03-03 01:54:23,386 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 01:54:23,390 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 01:54:23,391 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 01:54:23,648 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:54:43,436 [INFO] __main__: Приложение запущено
+2026-03-03 01:54:45,205 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 01:54:45,363 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 01:54:51,143 [INFO] __main__: Пользователь 7812309006 вызвал /start
+2026-03-03 01:54:51,577 [INFO] aiogram.event: Update id=185365226 is handled. Duration 1694 ms by bot id=8729550925
+2026-03-03 01:55:04,482 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 01:55:05,091 [INFO] aiogram.event: Update id=185365227 is handled. Duration 613 ms by bot id=8729550925
+2026-03-03 01:55:10,887 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 01:55:11,338 [INFO] aiogram.event: Update id=185365228 is handled. Duration 452 ms by bot id=8729550925
+2026-03-03 01:55:13,186 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 01:55:13,360 [INFO] aiogram.event: Update id=185365229 is handled. Duration 178 ms by bot id=8729550925
+2026-03-03 02:00:27,550 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 02:00:27,553 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 02:00:27,554 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 02:00:27,817 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 02:00:56,290 [INFO] __main__: Приложение запущено
+2026-03-03 02:00:58,523 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 02:00:58,677 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 02:00:59,659 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 02:01:00,895 [INFO] aiogram.event: Update id=185365230 is handled. Duration 1238 ms by bot id=8729550925
+2026-03-03 02:01:27,135 [INFO] __main__: Пользователь 7812309006 отправил фото для анализа Taobao
+2026-03-03 02:01:30,121 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-03 02:01:33,538 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772485288/klh3gytxiizue0tufccj.jpg&pageSize=10, статус: 200
+2026-03-03 02:01:33,541 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 02:01:33,769 [INFO] aiogram.event: Update id=185365231 is handled. Duration 6645 ms by bot id=8729550925
+2026-03-03 02:01:35,912 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:36,175 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:37,276 [INFO] aiogram.event: Update id=185365232 is handled. Duration 1365 ms by bot id=8729550925
+2026-03-03 02:01:42,987 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:43,211 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:44,243 [INFO] aiogram.event: Update id=185365233 is handled. Duration 1257 ms by bot id=8729550925
+2026-03-03 02:01:46,571 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:46,726 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:47,588 [INFO] aiogram.event: Update id=185365234 is handled. Duration 1018 ms by bot id=8729550925
+2026-03-03 02:01:48,875 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:49,107 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:49,826 [INFO] aiogram.event: Update id=185365235 is handled. Duration 953 ms by bot id=8729550925
+2026-03-03 02:01:50,847 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:50,999 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:52,188 [INFO] aiogram.event: Update id=185365236 is handled. Duration 1342 ms by bot id=8729550925
+2026-03-03 02:01:54,087 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:54,241 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:55,085 [INFO] aiogram.event: Update id=185365237 is handled. Duration 999 ms by bot id=8729550925
+2026-03-03 02:01:56,353 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:56,504 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:57,554 [INFO] aiogram.event: Update id=185365238 is handled. Duration 1201 ms by bot id=8729550925
+2026-03-03 02:01:58,478 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:01:58,642 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:01:59,605 [INFO] aiogram.event: Update id=185365239 is handled. Duration 1128 ms by bot id=8729550925
+2026-03-03 02:02:01,291 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:02:01,433 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:02:03,145 [INFO] aiogram.event: Update id=185365240 is handled. Duration 1855 ms by bot id=8729550925
+2026-03-03 02:02:04,598 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:02:04,986 [INFO] aiogram.event: Update id=185365241 is handled. Duration 392 ms by bot id=8729550925
+2026-03-03 02:02:13,867 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 02:02:14,111 [INFO] aiogram.event: Update id=185365242 is handled. Duration 245 ms by bot id=8729550925
+2026-03-03 02:02:22,425 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 02:02:22,755 [INFO] aiogram.event: Update id=185365243 is handled. Duration 331 ms by bot id=8729550925
+2026-03-03 02:02:59,246 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 02:02:59,879 [INFO] PinduoduoService: translate сработал
+2026-03-03 02:03:01,056 [INFO] PinduoduoService: Результат перевода: 拉布
+2026-03-03 02:03:03,508 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%E6%8B%89%E5%B8%83&sortType=default, статус: 200
+2026-03-03 02:03:03,511 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 825437210723, 'goods_name': '新款植绒拉布布站挂件钥匙扣CM4公仔包包女挂饰毛绒创意礼品玩具', 'market_price': 680, 'default_price': 580, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-09-25/b8c9b9c60123a0c9b41a52b8f4bd523d.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-09-25/b8c9b9c60123a0c9b41a52b8f4bd523d.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已拼1.2万+件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag_list': [{'text': '包
+2026-03-03 02:03:03,512 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-03 02:03:04,537 [INFO] aiogram.event: Update id=185365244 is handled. Duration 5293 ms by bot id=8729550925
+2026-03-03 02:03:09,188 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 02:03:09,346 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 02:03:10,810 [INFO] aiogram.event: Update id=185365245 is handled. Duration 1623 ms by bot id=8729550925
+2026-03-03 02:03:12,529 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 02:03:14,875 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 02:03:15,326 [INFO] aiogram.event: Update id=185365246 is handled. Duration 2798 ms by bot id=8729550925
+2026-03-03 02:03:28,818 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 02:03:29,311 [INFO] aiogram.event: Update id=185365247 is handled. Duration 495 ms by bot id=8729550925
+2026-03-03 02:03:31,864 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 02:03:32,307 [INFO] aiogram.event: Update id=185365248 is handled. Duration 444 ms by bot id=8729550925
+2026-03-03 02:03:37,416 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 02:03:37,600 [INFO] aiogram.event: Update id=185365249 is handled. Duration 185 ms by bot id=8729550925
+2026-03-03 02:03:47,449 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 02:03:48,501 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 02:03:48,678 [INFO] aiogram.event: Update id=185365250 is handled. Duration 1234 ms by bot id=8729550925
+2026-03-03 02:04:07,313 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 02:04:07,973 [INFO] aiogram.event: Update id=185365251 is handled. Duration 665 ms by bot id=8729550925
+2026-03-03 02:04:59,725 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 02:05:02,782 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 02:05:04,641 [INFO] aiogram.event: Update id=185365252 is handled. Duration 4922 ms by bot id=8729550925
+2026-03-03 02:05:27,289 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 02:05:27,464 [INFO] aiogram.event: Update id=185365253 is handled. Duration 176 ms by bot id=8729550925
+2026-03-03 02:05:36,864 [INFO] __main__: Пользователь 7812309006 отправил фото для ии
+2026-03-03 02:05:37,570 [INFO] aiogram.event: Update id=185365254 is handled. Duration 724 ms by bot id=8729550925
+2026-03-03 02:07:17,248 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 02:07:17,255 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 02:07:17,256 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 02:07:17,521 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 02:07:17,972 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000193A48D3620>
+2026-03-03 02:07:17,973 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x00000193A48D3A10>

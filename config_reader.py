@@ -17,6 +17,8 @@ class Settings(BaseSettings):
     img_key: SecretStr
     img_secret: SecretStr
     cloud_name: SecretStr
+
+    reddis_db: SecretStr
     # Начиная со второй версии pydantic, настройки класса настроек задаются
     # через model_config
     # В данном случае будет использоваться файла .env, который будет прочитан

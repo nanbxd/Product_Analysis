@@ -2,6 +2,7 @@ import aiohttp
 import asyncio
 import base64
 import logging
+from deep_translator import GoogleTranslator
 loggerPind = logging.getLogger("PinduoduoService")
 loggerTao = logging.getLogger("TaobaoService")
 
@@ -33,9 +34,23 @@ class PinduoduoService:
         self.current_key_idx = (self.current_key_idx + 1) % len(self.keys)
         loggerPind.info(f"API лимит исчерпан. Переключились с ключа №{old_key} на ключ №{self.current_key_idx}")
 
+    async def translateword(self, text):
+        loggerPind.info('translate сработал')
+        try:
+            # Запускаем синхронный перевод в отдельном потоке, чтобы не блокировать бота
+            search_query = await asyncio.to_thread(
+                lambda: GoogleTranslator(source='auto', target='zh-CN').translate(text)
+            )
+            loggerPind.info(f'Результат перевода: {search_query}')
+            return search_query
+        except Exception as e:
+            loggerPind.error(f'Ошибка при переводе запроса: {e}')
+            return text
+
     async def fetch_product(self, keyword: str):
         """Основной метод поиска товара"""
-        params = {"keyword": keyword, "sortType": "default"} # Ставим sales для надежности
+        truekeyword = await self.translateword(keyword)
+        params = {"keyword": truekeyword, "sortType": "default"} # Ставим sales для надежности
         session = await self.get_session()
         for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан
             try:
@@ -260,8 +275,9 @@ class TaobaoService:
                     
 
             except asyncio.TimeoutError:
-                loggerTao.error(f"Таймаут запроса к {self.host} на URL: {resp.url}")
-                return "Ошибка: API не ответило вовремя"
+                loggerTao.error(f"Таймаут запроса к {self.host}")
+
+                return 'Timeout не удалось получить ответы от сервера'
             except Exception as e:
                 loggerTao.exception(f"Общая ошибка запроса к {self.host}")  # тут stack trace
-                return f"Ошибка при выполнении запроса: {e}"
+                return "Произошла ошибка при получение данных о товаре таобао"

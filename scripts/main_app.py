@@ -14,9 +14,9 @@ from aiogram.filters import Command
 from scripts.states_app import SearchState
 from aiogram.fsm.context import FSMContext
 from aiogram.types import BotCommand, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
-#python -m scripts.main_app
+from scripts.limits import check_limit, increment_limit, get_remaining, get_reset_time
 from scripts.logger_config import setup_logging
-
+#python -m scripts.main_app
 setup_logging()
 logger = logging.getLogger(__name__)
 logger.info("Приложение запущено")
@@ -36,7 +36,7 @@ dp = Dispatcher()
 async def cmd_start(message: types.Message):
    logger.info(f"Пользователь {message.from_user.id} вызвал /start")
    await message.answer(
-    "👋 <b>Привет! Я ваш персональный ассистент по покупкам в Китае.</b>\n\n"
+    "👋 <b>Привет! Я ваш персональный ассистент по покупкам на маркетплейсах Китая.</b>\n\n"
     "Я помогу проанализировать товары и выбрать лучшее качество. Вот что я умею:\n\n"
     "📸 <b>Поиск по фото (Taobao):</b>\n"
     "Отправьте команду <code>/taoimg</code>, а затем — <b>фотографию</b> товара. "
@@ -102,11 +102,20 @@ async def cmd_help(message: types.Message):
 @dp.message(Command('pindname'))
 async def cmd_pindname(message: types.Message, command: CommandObject, state: FSMContext):
     logger.info(f"Пользователь {message.from_user.id} вызвал /pindname")
-    await bot.send_chat_action(message.chat.id, action="typing")
+    # лимит проверка пиндуодуо
+    if not await check_limit(message.from_user.id, "pindu"):
+        reset_at = await get_reset_time(message.from_user.id, "pindu")
+        await message.answer("⚠️ Лимит анализов Pinduoduo на сегодня достигнут (4).\n"
+            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>")
+        return
     # 2. Идем в API
     if command.args is None:
-        await message.answer("Пожалуйста, отправьте команду в формате: /pindname <название товара>", parse_mode= None)
+        await message.answer("Пожалуйста, отправьте команду в формате:\n"
+                            "/pindname <i>название товара</i>")
         return
+    await bot.send_chat_action(message.chat.id, action="typing")
+    await increment_limit(message.from_user.id, "pindu")
     products = await pdd_service.fetch_product(command.args)
     if products and isinstance(products, list):
         # Сохраняем список и индекс в FSM
@@ -129,6 +138,13 @@ async def cmd_clear_context(message: types.Message):
 @dp.message(Command("taoimg"))
 async def cmd_taoimg(message: types.Message, state: FSMContext):
     logger.info(f"Пользователь {message.from_user.id} вызвал /taoimg")
+    # проверка лимита на Taobao
+    if not await check_limit(message.from_user.id, "tao"):
+        reset_at = await get_reset_time(message.from_user.id, "tao")
+        await message.answer("⚠️ Лимит анализов Taobao на сегодня достигнут (3).\n"
+            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>")
+        return
     # Создаем кнопку отмены
     kb = [
         [KeyboardButton(text="❌ Отмена")]
@@ -149,6 +165,7 @@ async def cmd_taoimg(message: types.Message, state: FSMContext):
 @dp.message(SearchState.waiting_for_photo, F.photo | F.document.mime_type.startswith("image/"))
 async def tao_img_handler(message: types.Message, state: FSMContext, bot: Bot): # Добавили state
     logger.info(f"Пользователь {message.from_user.id} отправил фото для анализа Taobao")
+    await increment_limit(message.from_user.id, "tao")
     await message.answer("Ищу товары... подождите.")
     await bot.send_chat_action(message.chat.id, action="typing")
     # 1. Получаем список из 10 товаров
@@ -195,7 +212,17 @@ async def tao_invalid_handler(message: types.Message):
 async def ai_img_handler(message: types.Message, bot: Bot):
     logger.info(f"Пользователь {message.from_user.id} отправил фото для ии")
     await bot.send_chat_action(message.chat.id, action="typing")
+    if not await check_limit(message.from_user.id, "img"):
+        reset_at = await get_reset_time(message.from_user.id, "img")
 
+        await message.answer(
+            f"❌ Вы исчерпали дневной лимит обращений по фото к ИИ\n"
+            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>"
+        )
+        return
+    
+    await increment_limit(message.from_user.id, "img")
     if message.photo:
         file_id = message.photo[-1].file_id
     elif message.document:
@@ -314,6 +341,17 @@ async def confirm_product(callback: types.CallbackQuery, state: FSMContext):
 async def ai_message_handler(message: types.Message):
     logger.info(f"Пользователь {message.from_user.id} написал сообщение для ии")
     await bot.send_chat_action(message.chat.id, action="typing")
+    if not await check_limit(message.from_user.id, "msg"):
+        reset_at = await get_reset_time(message.from_user.id, "msg")
+
+        await message.answer(
+            f"❌ Вы исчерпали дневной лимит обращений по тексту к ИИ\n"
+            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>"
+        )
+        return
+    
+    await increment_limit(message.from_user.id, "msg")
     # Отправляем запрос в Groq
     response = await client_groq.get_response(
         user_id=message.from_user.id,
