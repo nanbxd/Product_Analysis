@@ -12,7 +12,8 @@ class Settings(BaseSettings):
 
     rapidapi_key1: SecretStr
     rapidapi_key2: SecretStr
-
+    rapidapi_key3: SecretStr
+    
     img_key: SecretStr
     img_secret: SecretStr
     cloud_name: SecretStr

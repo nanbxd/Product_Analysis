@@ -1,6 +1,10 @@
 from groq import AsyncGroq
 import base64
-from scripts.AI_promt import context, ai_hints, pinduo_analyse_promt, taobao_analyse_promt, default_analyse_prompt
+import json
+from scripts.AI_promt import context, ai_hints, pinduo_analyse_prompt, taobao_analyse_prompt, default_analyse_prompt
+import logging
+
+logger = logging.getLogger(__name__)
 
 class GroqAI:
     def __init__(self, api_key: str, model: str):
@@ -15,27 +19,28 @@ class GroqAI:
         
         self.history[user_id].append({"role": "user", "content": text})
         
-        if len(self.history[user_id]) > 11:
-            # Сохраняем системную инструкцию (она всегда на 0 месте)
-            system_prompt = self.history[user_id][0]
-            # Берем только последние 10 сообщений
+        if len(self.history[user_id]) > 12:
+            system_messages = self.history[user_id][:2]
             last_messages = self.history[user_id][-10:]
-            # Собираем новый список: Инструкция + последние 10 сообщений
-            self.history[user_id] = [system_prompt] + last_messages
+            self.history[user_id] = system_messages + last_messages
 
         try:
             completion = await self.client.chat.completions.create(
                 model=self.aimodel,
-                messages=self.history[user_id]
+                messages=self.history[user_id],
+                temperature=0.4
             )
             response = completion.choices[0].message.content
             self.history[user_id].append({"role": "assistant", "content": response})
             return response
         except Exception as e:
+            logger.error(f"Ошибка при получение ответа от Groq для текстового запроса")
             return f"Ошибка: {e}"
 
     async def clear_context(self, user_id: int):
-        self.history[user_id] = [{"role": "system", "content": context+ai_hints}]
+        self.history[user_id] = [
+            {"role": "system", "content": context},
+            {"role": "system", "content": ai_hints}]
 
     async def image_analysis(self, user_id: int, image_bytes: bytes, user_text: str = None) -> str:
         if user_id not in self.history:
@@ -71,6 +76,7 @@ class GroqAI:
         
             return response
         except Exception as e:
+            logger.error(f"Ошибка при получение ответа от Groq для Фото запроса")
             return f"Ошибка при анализе изображения: {e}"
         
 
@@ -80,18 +86,20 @@ class GroqAI:
             await self.clear_context(user_id)
         if market == 'Pinduoduo':
             command = '/pindname'
-            analyse_promt = pinduo_analyse_promt
+            analyse_promt = pinduo_analyse_prompt
         elif market == 'Taobao':
             command = '/taoimg'
-            analyse_promt = taobao_analyse_promt
+            analyse_promt = taobao_analyse_prompt
         else:
             command = 'для анализа'
             analyse_promt = default_analyse_prompt
         # Формируем сообщение с данными товара
         product_message = {
-            "role": "user",
-            "content": f"Запрос от команды {command}. {analyse_promt} - Данные о товаре --> {product_data}"
-        }
+            "role": "system",
+            "content": (f"Запрос от команды {command}.\n"
+                        f"{analyse_promt}\n\n"
+                        f"Данные о товаре (JSON):\n"
+                        f"{json.dumps(product_data, ensure_ascii=False, indent=2)}")}
 
         full_messages = self.history[user_id] + [product_message]
 
@@ -108,6 +116,7 @@ class GroqAI:
         
             return response
         except Exception as e:
+            logger.error(f"Ошибка при получение ответа от Groq для запроса Анализа")
             return f"Ошибка при анализе товара: {e}"
     @staticmethod
     def encode_image(image_bytes: bytes) -> str:

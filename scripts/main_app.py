@@ -15,11 +15,18 @@ from scripts.states_app import SearchState
 from aiogram.fsm.context import FSMContext
 from aiogram.types import BotCommand, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
 #python -m scripts.main_app
+from scripts.logger_config import setup_logging
 
+setup_logging()
+logger = logging.getLogger(__name__)
+logger.info("Приложение запущено")
 
-logging.basicConfig(level=logging.INFO)
-pdd_service = PinduoduoService(api_keys=[config.rapidapi_key1.get_secret_value(), config.rapidapi_key2.get_secret_value()])
-tao_service = TaobaoService(api_keys=[config.rapidapi_key1.get_secret_value(), config.rapidapi_key2.get_secret_value()])
+rapid_services_keys = [config.rapidapi_key1.get_secret_value(),
+                        config.rapidapi_key2.get_secret_value(), 
+                        config.rapidapi_key3.get_secret_value()]
+
+pdd_service = PinduoduoService(api_keys=rapid_services_keys)
+tao_service = TaobaoService(api_keys=rapid_services_keys)
 client_groq = GroqAI(api_key=config.ai_groq_api.get_secret_value(), model=config.ai_groq_model.get_secret_value()) 
 bot = Bot(token=config.tovarnyu_token.get_secret_value(), 
         default=DefaultBotProperties(parse_mode= 'HTML'))
@@ -27,6 +34,7 @@ dp = Dispatcher()
 
 @dp.message(Command("start")) 
 async def cmd_start(message: types.Message):
+   logger.info(f"Пользователь {message.from_user.id} вызвал /start")
    await message.answer(
     "👋 <b>Привет! Я ваш персональный ассистент по покупкам в Китае.</b>\n\n"
     "Я помогу проанализировать товары и выбрать лучшее качество. Вот что я умею:\n\n"
@@ -45,6 +53,7 @@ async def cmd_start(message: types.Message):
 @dp.message(Command("cancel"))
 @dp.message(F.text == "❌ Отмена") # Ловим текст с кнопки
 async def cancel_handler(message: types.Message, state: FSMContext):
+    logger.info(f"Пользователь {message.from_user.id} вызвал /cancel ")
     current_state = await state.get_state()
     if current_state is None:
         await message.answer("Нет активных действий.", reply_markup=ReplyKeyboardRemove())
@@ -56,6 +65,7 @@ async def cancel_handler(message: types.Message, state: FSMContext):
 
 @dp.message(Command("help"))
 async def cmd_help(message: types.Message):
+    logger.info(f"Пользователь {message.from_user.id} вызвал /help")
     await message.answer(
         "<b>🤖 Товарный AI-бот</b>\n"
         "Помогаю находить и анализировать товары с китайских маркетплейсов.\n\n"
@@ -91,6 +101,7 @@ async def cmd_help(message: types.Message):
 
 @dp.message(Command('pindname'))
 async def cmd_pindname(message: types.Message, command: CommandObject, state: FSMContext):
+    logger.info(f"Пользователь {message.from_user.id} вызвал /pindname")
     await bot.send_chat_action(message.chat.id, action="typing")
     # 2. Идем в API
     if command.args is None:
@@ -108,39 +119,16 @@ async def cmd_pindname(message: types.Message, command: CommandObject, state: FS
         await message.answer("Ничего не нашел, возможно вы отправили некорректное название или же произошла ошибка от серверной части. Попробуйте еще раз или отправьте фото на товар с Taobao для анализа.")
 
 
-@dp.message(Command('anal'))
-async def cmd_anal(message: types.Message, command: CommandObject):
-    await bot.send_chat_action(message.chat.id, action="typing")
-
-    url = None
-    entities = message.entities or []
-
-    for item in entities:
-        if item.type in ["url", "text_link"]:
-            url = item.extract_from(message.text)
-            break
-    if not url:
-        url = command.args
-    if not url:
-        await message.answer("Пожалуйста, отправьте команду в формате: /anal <ссылка на товар>", parse_mode= None)
-        return
-    if not url.startswith("http"):
-        try:
-            await message.answer(f"Похоже, <b>{url}</b> не является ссылкой. Проверьте формат.")
-        except:
-            await message.answer(f"Похоже, {url} не является ссылкой. Проверьте формат.", parse_mode= None)
-        return
-
-    await message.answer('-- МЕТОД АНАЛИЗА ВСЕ ЕЩЕ В РАЗРАБОТКЕ, ВЕРНИТЕСЬ ПОЗЖЕ ЛИБО ВОСПОЛЬЗУЙТЕСЬ /pindname для анализа товаров с PINDUODUO --')
-
 
 @dp.message(Command('clear_context'))
 async def cmd_clear_context(message: types.Message):
+    logger.info(f"Пользователь {message.from_user.id} вызвал /clear_context")
     await message.reply('-- Память ИИ сброшена --')
     await client_groq.clear_context(user_id=message.from_user.id)
 
 @dp.message(Command("taoimg"))
 async def cmd_taoimg(message: types.Message, state: FSMContext):
+    logger.info(f"Пользователь {message.from_user.id} вызвал /taoimg")
     # Создаем кнопку отмены
     kb = [
         [KeyboardButton(text="❌ Отмена")]
@@ -160,6 +148,7 @@ async def cmd_taoimg(message: types.Message, state: FSMContext):
 
 @dp.message(SearchState.waiting_for_photo, F.photo | F.document.mime_type.startswith("image/"))
 async def tao_img_handler(message: types.Message, state: FSMContext, bot: Bot): # Добавили state
+    logger.info(f"Пользователь {message.from_user.id} отправил фото для анализа Taobao")
     await message.answer("Ищу товары... подождите.")
     await bot.send_chat_action(message.chat.id, action="typing")
     # 1. Получаем список из 10 товаров
@@ -199,10 +188,12 @@ async def tao_img_handler(message: types.Message, state: FSMContext, bot: Bot): 
 # Добавьте этот обработчик, чтобы ловить мусор
 @dp.message(SearchState.waiting_for_photo)
 async def tao_invalid_handler(message: types.Message):
+    logger.info(f"Пользователь {message.from_user.id} отправил не фото")
     await message.answer("Пожалуйста, отправьте фото. Чтобы отменить поиск, используйте /cancel")
 
 @dp.message(F.photo | F.document.mime_type("image/*"))
 async def ai_img_handler(message: types.Message, bot: Bot):
+    logger.info(f"Пользователь {message.from_user.id} отправил фото для ии")
     await bot.send_chat_action(message.chat.id, action="typing")
 
     if message.photo:
@@ -237,6 +228,7 @@ async def ai_img_handler(message: types.Message, bot: Bot):
 
 # --- ФУНКЦИЯ ОТРИСОВКИ ТОВАРА ---
 async def show_product_selection(message: types.Message, product: dict, index: int):
+    logger.info(f"Пользователь {message.from_user.id} получил карту товара")
     kb = InlineKeyboardMarkup(inline_keyboard=[
         [
             InlineKeyboardButton(text="✅ Да, это он", callback_data="confirm_prod"),
@@ -273,6 +265,7 @@ async def set_commands(bot: Bot):
 # --- ОБРАБОТЧИК КНОПКИ "НЕТ, ДАЛЬШЕ" ---
 @dp.callback_query(F.data == "next_prod")
 async def next_product(callback: types.CallbackQuery, state: FSMContext):
+    logger.info(f"Пользователь {callback.message.from_user.id} пролистнул")
     data = await state.get_data()
     products = data.get('products', [])
     new_index = data.get('current_index', 0) + 1
@@ -290,6 +283,7 @@ async def next_product(callback: types.CallbackQuery, state: FSMContext):
 # --- ОБРАБОТЧИК КНОПКИ "ДА, ОН" ---
 @dp.callback_query(F.data == "confirm_prod")
 async def confirm_product(callback: types.CallbackQuery, state: FSMContext):
+    logger.info(f"Пользователь {callback.message.from_user.id} нашел свой товар, начинается глубокий анализ")
     await callback.answer()
     data = await state.get_data()
     product = data['products'][data['current_index']]
@@ -318,6 +312,7 @@ async def confirm_product(callback: types.CallbackQuery, state: FSMContext):
 
 @dp.message(F.text)
 async def ai_message_handler(message: types.Message):
+    logger.info(f"Пользователь {message.from_user.id} написал сообщение для ии")
     await bot.send_chat_action(message.chat.id, action="typing")
     # Отправляем запрос в Groq
     response = await client_groq.get_response(

@@ -1,0 +1,40 @@
+2026-03-02 21:16:20,607 [INFO] __main__: Приложение запущено
+2026-03-02 21:16:23,429 [INFO] aiogram.dispatcher: Start polling
+2026-03-02 21:16:23,611 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-02 21:16:23,773 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-02 21:16:23,775 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-02 21:16:25,297 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 21:16:25,358 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 21:16:25,548 [INFO] aiogram.event: Update id=185365087 is handled. Duration 1779 ms by bot id=8729550925
+2026-03-02 21:16:25,565 [INFO] aiogram.event: Update id=185365086 is handled. Duration 1797 ms by bot id=8729550925
+2026-03-02 21:17:45,634 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 21:17:45,943 [INFO] aiogram.event: Update id=185365088 is handled. Duration 309 ms by bot id=8729550925
+2026-03-02 21:19:07,190 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-02 21:19:07,549 [INFO] aiogram.event: Update id=185365089 is handled. Duration 359 ms by bot id=8729550925
+2026-03-02 21:19:51,562 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-02 21:19:51,716 [INFO] aiogram.event: Update id=185365090 is handled. Duration 155 ms by bot id=8729550925
+2026-03-02 21:20:05,967 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 21:20:06,381 [INFO] aiogram.event: Update id=185365091 is handled. Duration 414 ms by bot id=8729550925
+2026-03-02 21:20:12,821 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-02 21:20:14,962 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%E7%BE%8E%E5%BC%8F%E5%A4%8D%E5%8F%A4%E6%B0%B4%E6%B4%97%E5%BC%AF%E5%88%80%E7%89%9B%E4%BB%94&sortType=default, статус: 200
+2026-03-02 21:20:14,977 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 837241872600, 'goods_name': '高个子加长美式复古猫须水洗做旧牛仔裤女低腰宽松显瘦阔腿弯刀裤', 'market_price': 5580, 'default_price': 5280, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-10-15/7d26eca98e6843f3c56fa7c24132706e.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-10-15/7d26eca98e6843f3c56fa7c24132706e.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已拼1.1万+件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag_list': [{'text': '
+2026-03-02 21:20:14,978 [INFO] __main__: Пользователь 7812309006 получил карту товара
+2026-03-02 21:20:15,616 [INFO] aiogram.event: Update id=185365092 is handled. Duration 2796 ms by bot id=8729550925
+2026-03-02 21:20:19,224 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 21:20:19,371 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 21:20:20,913 [INFO] aiogram.event: Update id=185365093 is handled. Duration 1689 ms by bot id=8729550925
+2026-03-02 21:20:23,108 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 21:20:23,255 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 21:20:25,384 [INFO] aiogram.event: Update id=185365094 is handled. Duration 2276 ms by bot id=8729550925
+2026-03-02 21:20:29,763 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 21:20:30,026 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 21:20:32,427 [INFO] aiogram.event: Update id=185365095 is handled. Duration 2664 ms by bot id=8729550925
+2026-03-02 21:20:34,731 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 21:20:34,889 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 21:20:35,953 [INFO] aiogram.event: Update id=185365096 is handled. Duration 1222 ms by bot id=8729550925
+2026-03-02 21:20:39,098 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-02 21:20:39,262 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-02 21:20:40,282 [INFO] aiogram.event: Update id=185365097 is handled. Duration 1185 ms by bot id=8729550925
+2026-03-02 21:20:43,909 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-02 21:20:45,484 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-02 21:20:45,663 [INFO] aiogram.event: Update id=185365098 is handled. Duration 1755 ms by bot id=8729550925

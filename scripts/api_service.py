@@ -1,7 +1,9 @@
 import aiohttp
-import logging
 import asyncio
 import base64
+import logging
+loggerPind = logging.getLogger("PinduoduoService")
+loggerTao = logging.getLogger("TaobaoService")
 
 class PinduoduoService:
     def __init__(self, api_keys: list):
@@ -27,8 +29,9 @@ class PinduoduoService:
         return headers
 
     def _rotate_key(self):
+        old_key = self.current_key_idx
         self.current_key_idx = (self.current_key_idx + 1) % len(self.keys)
-        logging.info(f"Переключились на API ключ №{self.current_key_idx}")
+        loggerPind.info(f"API лимит исчерпан. Переключились с ключа №{old_key} на ключ №{self.current_key_idx}")
 
     async def fetch_product(self, keyword: str):
         """Основной метод поиска товара"""
@@ -37,12 +40,16 @@ class PinduoduoService:
         for _ in range(len(self.keys)): # Пробуем ключи по очереди, если лимит исчерпан
             try:
                 async with session.get(self.url, headers=self._get_headers(), params=params, timeout=10) as resp:
-                    if resp.status == 429: # Лимит исчерпан
+                    loggerPind.info(f"Pinduoduo запрос: {resp.url}, статус: {resp.status}")
+                    if resp.status == 429: 
                         self._rotate_key()
                         continue
-                    
-                    result = await resp.json()
-                    
+                    try:
+                        result = await resp.json()
+                        loggerPind.info(f"Pinduoduo ответ (первые 500 символов): {str(result)[:500]}")
+                    except Exception as e_json:
+                        loggerPind.error(f"Ошибка парсинга JSON Pinduoduo: {e_json}")
+                        return None
                     if result.get("success") and result["data"]["items"]:
                         products = result["data"]["items"]
                         responselist = []
@@ -50,9 +57,10 @@ class PinduoduoService:
                             responselist.append(self._format_data(prod))
                         return responselist
                     return None
-                    
+                
+
             except Exception as e:
-                logging.error(f"Ошибка запроса к Pinduoduo: {e}")
+                loggerPind.error(f"Ошибка запроса к Pinduoduo: {e}")
                 return None
         return None
 
@@ -96,7 +104,7 @@ class TaobaoService:
 
     def _rotate_key(self):
         self.current_key_idx = (self.current_key_idx + 1) % len(self.keys)
-        logging.info(f"Переключились на API ключ №{self.current_key_idx}")
+        loggerTao.info(f"Переключились на API ключ №{self.current_key_idx}")
 
     async def tao_imginfo(self, cloud_name, upload_preset, img: bytes):
         online_img = await self._getwebimg(cloud_name=cloud_name,upload_preset=upload_preset,img_bytes=img)
@@ -106,11 +114,13 @@ class TaobaoService:
             try:
                 session = await self.get_session()
                 async with session.get(self.searth_img_url, headers=self._get_headers(), params=params, timeout=20) as resp:
+                    loggerTao.info(f"Taobao image search запрос: {resp.url}, статус: {resp.status}")
                     if resp.status == 429: # Лимит исчерпан
                         self._rotate_key()
                         continue
                     elif resp.status != 200:
                         error_text = await resp.text()
+                        loggerTao.error(f"Taobao ошибка запроса: {error_text[:300]}")
                         return f"Ошибка API Taobao ({resp.status}): {error_text[:100]}"
                     result = await resp.json()
                     
@@ -160,9 +170,10 @@ class TaobaoService:
 
         async with aiohttp.ClientSession(timeout=timeout) as session:
             async with session.post(upload_url, data=data) as resp:
-
+                loggerTao.info(f"Cloudinary upload запрос: {upload_url}, статус: {resp.status}")
                 if resp.status != 200:
                     text = await resp.text()
+                    loggerTao.error(f"Cloudinary ошибка: {text[:300]}")
                     raise Exception(f"Cloudinary Error {resp.status}: {text}")
 
                 result = await resp.json()
@@ -170,53 +181,60 @@ class TaobaoService:
                 return result["secure_url"]  # HTTPS ссылка
             
     def _format_data(self, data: dict):
-        if not data or "item" not in data:
+        if not data:
+            return {"error": "Пустой ответ API"}
+
+        item = data.get("result", {}).get("item")
+
+        if not item:
             return {"error": "Товар не найден или ошибка API"}
 
-        item = data["item"]
         sku_info = item.get("sku", {})
-        
-        # 1. Считаем общий остаток на складе по всем вариациям
-        total_stock = sum(int(s.get("quantity", 0)) for s in sku_info.get("base", []))
 
-        # 2. Собираем характеристики (материал, сезон и т.д.) в одну строку или список
-        properties = {p.get("name"): p.get("value") for p in item.get("properties", {}).get("list", [])}
+        # 1. Общий остаток
+        total_stock = sum(
+            int(s.get("quantity", 0))
+            for s in sku_info.get("base", [])
+        )
 
-        # 3. Анализ цен (берем из дефолтного SKU)
+        # 2. Характеристики
+        properties = {
+            p.get("name"): p.get("value")
+            for p in item.get("properties", {}).get("list", [])
+        }
+
+        # 3. Цены
         default_sku = sku_info.get("def", {})
         current_price = default_sku.get("promotionPrice") or default_sku.get("price")
         old_price = default_sku.get("price")
 
-        # 4. Формируем финальный словарь
-        analysis_report = {
-            # Основная инфа
+        # 4. Формируем результат
+        return {
             "item_id": item.get("itemId"),
             "title": item.get("title"),
             "category": item.get("catName"),
-            
-            # Коммерция
+
             "price_current": float(current_price) if current_price else 0,
             "price_original": float(old_price) if old_price else 0,
             "monthly_sales": int(item.get("sales", 0)),
             "total_stock": total_stock,
-            
-            # Логистика
+
             "ships_from": item.get("delivery", {}).get("shipsFrom"),
-            "shipping_fee": item.get("delivery", {}).get("shipFeeDetails", [{}])[0].get("fee", "0.00"),
-            
-            # Продавец и доверие
+            "shipping_fee": item.get("delivery", {})
+                            .get("shipFeeDetails", [{}])[0]
+                            .get("fee", "0.00"),
+
             "seller_name": item.get("seller", {}).get("storeTitle"),
-            "seller_type": item.get("seller", {}).get("storeType"), # tmall или taobao
-            "shop_rating": item.get("seller", {}).get("storeEvaluates", [{}])[0].get("score"), # Оценка товара
+            "seller_type": item.get("seller", {}).get("storeType"),
+            "shop_rating": item.get("seller", {})
+                            .get("storeEvaluates", [{}])[0]
+                            .get("score"),
+
             "reviews_count": item.get("reviews", {}).get("count"),
-            
-            # Контент
-            "all_props": properties, # Весь состав/характеристики здесь
+
+            "all_props": properties,
             "url": f"https:{item.get('itemUrl')}"
         }
-
-        return analysis_report
-
     
     async def get_item_detail(self, item_id: str, item_id_str: str = None):
         params = {
@@ -228,18 +246,22 @@ class TaobaoService:
             try:
                 session = await self.get_session()
                 async with session.get(self.product_details_url, headers=self._get_headers(), params=params, timeout=20) as resp:
+                    loggerTao.info(f"Taobao детальная инфа запрос: {resp.url}, статус: {resp.status}")
                     if resp.status == 429: # Лимит исчерпан
                         self._rotate_key()
                         continue
                     elif resp.status != 200:
                         error_text = await resp.text()
+                        loggerTao.error(f"Taobao детальная ошибка запроса: {error_text[:300]}")
                         return f"Ошибка API Taobao ({resp.status}): {error_text[:100]}"
                     result = await resp.json()
-                    
+                    loggerTao.info(f"Taobao детальная инфа ответ (первые 500 символов): {str(result)[:500]}")
                     return self._format_data(result)
                     
 
             except asyncio.TimeoutError:
+                loggerTao.error(f"Таймаут запроса к {self.host} на URL: {resp.url}")
                 return "Ошибка: API не ответило вовремя"
             except Exception as e:
+                loggerTao.exception(f"Общая ошибка запроса к {self.host}")  # тут stack trace
                 return f"Ошибка при выполнении запроса: {e}"
