@@ -187,7 +187,7 @@ async def tao_img_handler(message: types.Message, state: FSMContext, bot: Bot): 
 
         
         if not products:
-            await message.answer("Ничего не нашел. Попробуйте еще раз с другой фотографией")
+            await message.answer("Ничего не нашел. Попробуйте еще раз с другой фотографией", reply_markup=ReplyKeyboardRemove())
             await state.clear()
             return
         
@@ -198,7 +198,7 @@ async def tao_img_handler(message: types.Message, state: FSMContext, bot: Bot): 
         await show_product_selection(message, products[0], 0)
 
     except Exception as e:
-        await message.answer(f"Произошла ошибка при обработке изображения: {e}")
+        await message.answer(f"Произошла ошибка при обработке изображения: {e}", reply_markup=ReplyKeyboardRemove())
         await state.clear()
 
 
@@ -288,7 +288,13 @@ async def set_commands(bot: Bot):
     await bot.set_my_commands(commands)
 # ---------------                         CALLBACKS ------------
 
-
+# --- ОБРАБОТЧИК КНОПКИ "Отмена" ---
+@dp.callback_query(F.data == "cancel_search")
+async def next_product(callback: types.CallbackQuery, state: FSMContext):
+    logger.info(f"Пользователь {callback.message.from_user.id} отменил запрос")
+    await callback.message.delete()
+    await callback.message.answer("Поиск товара отменен.", reply_markup=ReplyKeyboardRemove())
+    await state.clear()
 # --- ОБРАБОТЧИК КНОПКИ "НЕТ, ДАЛЬШЕ" ---
 @dp.callback_query(F.data == "next_prod")
 async def next_product(callback: types.CallbackQuery, state: FSMContext):

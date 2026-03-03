@@ -943,3 +943,1597 @@ TypeError: clearid() missing 1 required positional argument: 'id'
 client_session: <aiohttp.client.ClientSession object at 0x00000193A48D3620>
 2026-03-03 02:07:17,973 [ERROR] asyncio: Unclosed client session
 client_session: <aiohttp.client.ClientSession object at 0x00000193A48D3A10>
+2026-03-03 18:19:47,068 [INFO] __main__: Приложение запущено
+2026-03-03 18:19:49,574 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 18:19:49,720 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 18:21:16,079 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 18:21:18,827 [INFO] aiogram.event: Update id=185365255 is handled. Duration 2749 ms by bot id=8729550925
+2026-03-03 18:21:25,110 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 18:21:25,651 [INFO] aiogram.event: Update id=185365256 is handled. Duration 542 ms by bot id=8729550925
+2026-03-03 18:21:28,119 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 18:21:28,656 [INFO] aiogram.event: Update id=185365257 is handled. Duration 537 ms by bot id=8729550925
+2026-03-03 18:21:32,041 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 18:21:32,520 [INFO] aiogram.event: Update id=185365258 is handled. Duration 480 ms by bot id=8729550925
+2026-03-03 18:21:52,228 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 18:21:52,525 [INFO] aiogram.event: Update id=185365259 is handled. Duration 297 ms by bot id=8729550925
+2026-03-03 18:22:05,122 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 18:22:07,490 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 18:22:07,891 [INFO] aiogram.event: Update id=185365260 is handled. Duration 2772 ms by bot id=8729550925
+2026-03-03 18:22:34,438 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 18:22:35,745 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 18:22:36,154 [INFO] aiogram.event: Update id=185365261 is handled. Duration 1718 ms by bot id=8729550925
+2026-03-03 18:26:20,600 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 18:26:20,606 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 18:26:20,606 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 18:26:20,865 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 21:25:47,062 [INFO] __main__: Приложение запущено
+2026-03-03 21:25:49,079 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 21:25:49,225 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 21:26:40,931 [INFO] __main__: Пользователь 6088589539 вызвал /start
+2026-03-03 21:26:41,842 [INFO] aiogram.event: Update id=185365262 is handled. Duration 911 ms by bot id=8729550925
+2026-03-03 21:26:56,957 [INFO] __main__: Пользователь 6088589539 вызвал /taoimg
+2026-03-03 21:26:58,018 [INFO] aiogram.event: Update id=185365263 is handled. Duration 1062 ms by bot id=8729550925
+2026-03-03 21:27:49,199 [INFO] __main__: Пользователь 6088589539 отправил фото для анализа Taobao
+2026-03-03 21:27:54,570 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-03 21:27:58,059 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772555272/busslsojwfwvpiajapkn.jpg&pageSize=10, статус: 200
+2026-03-03 21:27:58,061 [INFO] __main__: Пользователь 6088589539 получил карту товара
+2026-03-03 21:27:58,233 [INFO] aiogram.event: Update id=185365264 is handled. Duration 9036 ms by bot id=8729550925
+2026-03-03 21:28:30,895 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:28:31,049 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:28:31,381 [INFO] aiogram.event: Update id=185365265 is handled. Duration 487 ms by bot id=8729550925
+2026-03-03 21:28:34,577 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:28:34,755 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:28:36,577 [INFO] aiogram.event: Update id=185365266 is handled. Duration 2001 ms by bot id=8729550925
+2026-03-03 21:28:38,739 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 21:28:41,168 [INFO] TaobaoService: Taobao детальная инфа запрос: https://taobao-datahub.p.rapidapi.com/item_detail?itemId=541879354760&itemIdStr=RkVtK05oYnIwcnNpWHhxUmtzeWM2N1R4Y0o2alU2dVBLVTFiRGJoSmRVbjdSRHNXc1ltNlEvL1B1M3psRGhQTFhrUTMyWDR4Ym9mOEVuSFpBcjZzWDBHT2pVVXdYbUg0UTRuTTlOWTlrYlV3MFlCNGZIdjhsVlRrdTYwd0tzeFR5VVNBTDFGendENUova1cvQkVsSXVZMzZLbnJxcERjT2p0bDJJZ1dFOW05Z2trOWZVZ3EzQmlpcGh1Y0RKeWM5bjFVd0Uzc1BiNUNINTd4OFZGM2xkdFN5MG9NakF5VXVoTVFwOVZ0ZWNrR1BoWkJkMUVnZDVadGM3dUtjNVRzeWlMWXBYNTRiam1VTGlBdUI1dk1hbmFIRHlVb045TXNQaXFrWlhSb1poSWhFZVlPVFpuSVZqaFZPMVdLSFpERyt2N0hrNW1sRW5ocmJta0J3VUc3U1VzZ2hpN2hTbUdKZllzcjFDTEFyTXlBT3VUTmJoQUNWTGlwUkN3cEIwN3RyVDBDbFBnWjJaMlRtZ0FEUGs1ZmsvWkJuRkh0ZE5OQUh1Ykc5R3YzVDNRK2Qydjd5RFhmMmN5c0hNQVlvRnJkVTRESXJzV1RnTFNUR2RHdUxiYVZmS2tteGlBUVE3Q0pPRlZUK3hwWWY5TExvaThTRWs3L0U2UGFSRTlleWdndHRZNWFLOTh3ZGFLeVBXRzVJSGNsdmtRYmxWcXJ4MzRwdEV2bTF4TmNTYVFqb0JNVTlHWjN4bzRpT3JaNElYTWpheGVMc2hPd0I2MnBpSi8vT3JtRmlwbi9yVHFZUEFOMkpwODdib1FDUitSR3VSZTNEck40T1lYVnBmTG9RSEVMbisya3VNbjlSR3BPSjFqVklBVGNXcnVBcXN3OURqVzdGQzZ2cUZrcWlqQzQ9, статус: 200
+2026-03-03 21:28:41,169 [INFO] TaobaoService: Taobao детальная инфа ответ (первые 500 символов): {'result': {'status': {'data': 'error', 'code': 205, 'msg': {'data-error': 'request successfully formed, but no results were found'}, 'endpoint': 'item_detail', 'params': {'itemIdStr': 'wabm8beUXfDKM6nzqrc5O8ibtd-n8924MuQgG05444fBg', 'itemId': '541879354760', 'areaId': ''}}}}
+2026-03-03 21:28:42,514 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 21:28:42,744 [INFO] aiogram.event: Update id=185365267 is handled. Duration 4006 ms by bot id=8729550925
+2026-03-03 21:29:02,794 [INFO] __main__: Пользователь 6088589539 вызвал /cancel 
+2026-03-03 21:29:02,955 [INFO] aiogram.event: Update id=185365268 is handled. Duration 163 ms by bot id=8729550925
+2026-03-03 21:29:04,542 [INFO] __main__: Пользователь 6088589539 вызвал /pindname
+2026-03-03 21:29:05,049 [INFO] aiogram.event: Update id=185365269 is handled. Duration 508 ms by bot id=8729550925
+2026-03-03 21:29:51,582 [INFO] __main__: Пользователь 6088589539 вызвал /pindname
+2026-03-03 21:29:52,223 [INFO] PinduoduoService: translate сработал
+2026-03-03 21:29:53,332 [INFO] PinduoduoService: Результат перевода: 铁
+2026-03-03 21:29:55,297 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%E9%93%81&sortType=default, статус: 200
+2026-03-03 21:29:56,164 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 761436391693, 'goods_name': '带孔热镀锌扁铁可焊接承重调整铁条架子固定铁条改装支撑不易加厚', 'market_price': 504, 'default_price': 404, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-06-12/5862eb2d613c37c89240e218e9756976.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-06-12/5862eb2d613c37c89240e218e9756976.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '已拼13万+件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag': '扁铁畅销榜第5名', 'tag_li
+2026-03-03 21:29:56,164 [INFO] __main__: Пользователь 6088589539 получил карту товара
+2026-03-03 21:29:57,259 [INFO] aiogram.event: Update id=185365270 is handled. Duration 5678 ms by bot id=8729550925
+2026-03-03 21:30:01,889 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:02,029 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:03,215 [INFO] aiogram.event: Update id=185365271 is handled. Duration 1326 ms by bot id=8729550925
+2026-03-03 21:30:04,661 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:05,002 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:08,210 [INFO] aiogram.event: Update id=185365272 is handled. Duration 3549 ms by bot id=8729550925
+2026-03-03 21:30:11,168 [INFO] aiogram.event: Update id=185365273 is not handled. Duration 1 ms by bot id=8729550925
+2026-03-03 21:30:19,214 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:19,427 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:20,696 [INFO] aiogram.event: Update id=185365274 is handled. Duration 1482 ms by bot id=8729550925
+2026-03-03 21:30:23,028 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:23,170 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:24,489 [INFO] aiogram.event: Update id=185365275 is handled. Duration 1461 ms by bot id=8729550925
+2026-03-03 21:30:25,937 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:26,108 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:27,063 [INFO] aiogram.event: Update id=185365276 is handled. Duration 1126 ms by bot id=8729550925
+2026-03-03 21:30:28,085 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:28,228 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:29,279 [INFO] aiogram.event: Update id=185365277 is handled. Duration 1195 ms by bot id=8729550925
+2026-03-03 21:30:30,554 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:30,704 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:31,896 [INFO] aiogram.event: Update id=185365278 is handled. Duration 1342 ms by bot id=8729550925
+2026-03-03 21:30:32,801 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:32,942 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:34,479 [INFO] aiogram.event: Update id=185365279 is handled. Duration 1679 ms by bot id=8729550925
+2026-03-03 21:30:35,252 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:35,537 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:30:36,636 [INFO] aiogram.event: Update id=185365280 is handled. Duration 1384 ms by bot id=8729550925
+2026-03-03 21:30:37,405 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:30:37,729 [INFO] aiogram.event: Update id=185365281 is handled. Duration 324 ms by bot id=8729550925
+2026-03-03 21:31:05,180 [INFO] __main__: Пользователь 6088589539 вызвал /pindname
+2026-03-03 21:31:05,783 [INFO] PinduoduoService: translate сработал
+2026-03-03 21:31:07,671 [INFO] PinduoduoService: Результат перевода: 背光键盘
+2026-03-03 21:31:09,448 [INFO] PinduoduoService: Pinduoduo запрос: https://pinduoduo1.p.rapidapi.com/pinduoduo/search?keyword=%E8%83%8C%E5%85%89%E9%94%AE%E7%9B%98&sortType=default, статус: 200
+2026-03-03 21:31:09,456 [INFO] PinduoduoService: Pinduoduo ответ (первые 500 символов): {'success': True, 'data': {'items': [{'goods_id': 878592206277, 'goods_name': '傲器有线键盘炫酷发光电脑笔记本USB接口游戏办公通用舒适好用', 'market_price': 3100, 'default_price': 2999, 'thumb_url': '//img.pddpic.com/gaudit-image/2025-12-24/3de16f1eac3335f5b6d9fb57bfad7b95.jpeg?imageMogr2/thumbnail/x200', 'hd_thumb_url': '//img.pddpic.com/gaudit-image/2025-12-24/3de16f1eac3335f5b6d9fb57bfad7b95.jpeg?imageMogr2/thumbnail/x200', 'side_sales_tip': '总售22.2万+件', 'plgsn': '3e5ed73c3a08fc64e428930284416719', 'tag_list': [{'text': 
+2026-03-03 21:31:09,457 [INFO] __main__: Пользователь 6088589539 получил карту товара
+2026-03-03 21:31:11,171 [INFO] aiogram.event: Update id=185365282 is handled. Duration 5992 ms by bot id=8729550925
+2026-03-03 21:31:29,829 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:31:29,987 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:31:31,083 [INFO] aiogram.event: Update id=185365283 is handled. Duration 1254 ms by bot id=8729550925
+2026-03-03 21:31:32,640 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 21:31:32,914 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 21:31:33,939 [INFO] aiogram.event: Update id=185365284 is handled. Duration 1299 ms by bot id=8729550925
+2026-03-03 21:31:38,832 [INFO] __main__: Пользователь 8729550925 нашел свой товар, начинается глубокий анализ
+2026-03-03 21:31:40,817 [INFO] httpx: HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-03-03 21:31:41,013 [INFO] aiogram.event: Update id=185365285 is handled. Duration 2181 ms by bot id=8729550925
+2026-03-03 21:32:04,185 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 21:32:04,187 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 21:32:04,187 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 21:32:04,446 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 21:32:04,679 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001BCE33BEF90>
+2026-03-03 21:32:04,680 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001BCE3440440>
+2026-03-03 22:44:16,263 [INFO] __main__: Приложение запущено
+2026-03-03 22:44:17,916 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 22:44:18,128 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 22:44:18,279 [INFO] __main__: Пользователь 6088589539 написал сообщение для ии
+2026-03-03 22:44:43,350 [INFO] aiogram.event: Update id=185365286 is not handled. Duration 25073 ms by bot id=8729550925
+2026-03-03 22:44:43,350 [ERROR] aiogram.event: Cause exception while process update id=185365286 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 345, in ai_message_handler
+    if not await check_limit(message.from_user.id, "msg"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:44:43,546 [INFO] __main__: Пользователь 7812309006 вызвал /cancel 
+2026-03-03 22:44:43,824 [INFO] aiogram.event: Update id=185365287 is handled. Duration 278 ms by bot id=8729550925
+2026-03-03 22:44:46,913 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 22:45:06,710 [INFO] aiogram.event: Update id=185365288 is not handled. Duration 19798 ms by bot id=8729550925
+2026-03-03 22:45:06,711 [ERROR] aiogram.event: Cause exception while process update id=185365288 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 142, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:45:09,593 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 22:45:29,377 [INFO] aiogram.event: Update id=185365289 is not handled. Duration 19785 ms by bot id=8729550925
+2026-03-03 22:45:29,378 [ERROR] aiogram.event: Cause exception while process update id=185365289 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 142, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:46:11,218 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 22:46:15,452 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 22:46:15,991 [INFO] aiogram.event: Update id=185365291 is handled. Duration 540 ms by bot id=8729550925
+2026-03-03 22:46:19,325 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 22:46:31,687 [INFO] aiogram.event: Update id=185365290 is not handled. Duration 20469 ms by bot id=8729550925
+2026-03-03 22:46:31,687 [ERROR] aiogram.event: Cause exception while process update id=185365290 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 142, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:46:39,061 [INFO] aiogram.event: Update id=185365292 is not handled. Duration 19737 ms by bot id=8729550925
+2026-03-03 22:46:39,062 [ERROR] aiogram.event: Cause exception while process update id=185365292 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 106, in cmd_pindname
+    if not await check_limit(message.from_user.id, "pindu"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:47:02,209 [INFO] __main__: Пользователь 7812309006 написал сообщение для ии
+2026-03-03 22:47:22,066 [INFO] aiogram.event: Update id=185365293 is not handled. Duration 19859 ms by bot id=8729550925
+2026-03-03 22:47:22,067 [ERROR] aiogram.event: Cause exception while process update id=185365293 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 345, in ai_message_handler
+    if not await check_limit(message.from_user.id, "msg"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:48:57,268 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 22:48:57,272 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 22:48:57,272 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 22:48:57,431 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 22:51:32,465 [INFO] __main__: Приложение запущено
+2026-03-03 22:51:34,103 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 22:51:34,257 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 22:51:34,404 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 22:51:40,931 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 22:51:44,230 [INFO] __main__: Пользователь 7812309006 вызвал /help
+2026-03-03 22:51:44,685 [INFO] aiogram.event: Update id=185365296 is handled. Duration 456 ms by bot id=8729550925
+2026-03-03 22:51:48,027 [INFO] __main__: Пользователь 7812309006 вызвал /taoimg
+2026-03-03 22:51:50,589 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 22:51:54,206 [INFO] aiogram.event: Update id=185365294 is not handled. Duration 19802 ms by bot id=8729550925
+2026-03-03 22:51:54,206 [ERROR] aiogram.event: Cause exception while process update id=185365294 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 106, in cmd_pindname
+    if not await check_limit(message.from_user.id, "pindu"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:52:07,402 [INFO] aiogram.event: Update id=185365295 is not handled. Duration 26472 ms by bot id=8729550925
+2026-03-03 22:52:07,403 [ERROR] aiogram.event: Cause exception while process update id=185365295 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 142, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:52:09,719 [INFO] __main__: Пользователь 6088589539 вызвал /pindname
+2026-03-03 22:52:10,012 [INFO] aiogram.event: Update id=185365297 is not handled. Duration 21985 ms by bot id=8729550925
+2026-03-03 22:52:10,012 [ERROR] aiogram.event: Cause exception while process update id=185365297 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 142, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:52:10,199 [INFO] aiogram.event: Update id=185365298 is not handled. Duration 19611 ms by bot id=8729550925
+2026-03-03 22:52:10,200 [ERROR] aiogram.event: Cause exception while process update id=185365298 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 106, in cmd_pindname
+    if not await check_limit(message.from_user.id, "pindu"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:52:13,703 [INFO] __main__: Пользователь 6088589539 вызвал /help
+2026-03-03 22:52:13,880 [INFO] aiogram.event: Update id=185365300 is handled. Duration 178 ms by bot id=8729550925
+2026-03-03 22:52:16,049 [INFO] __main__: Пользователь 6088589539 вызвал /cancel 
+2026-03-03 22:52:16,205 [INFO] aiogram.event: Update id=185365301 is handled. Duration 157 ms by bot id=8729550925
+2026-03-03 22:52:17,743 [INFO] __main__: Пользователь 6088589539 вызвал /taoimg
+2026-03-03 22:52:29,463 [INFO] aiogram.event: Update id=185365299 is not handled. Duration 19744 ms by bot id=8729550925
+2026-03-03 22:52:29,463 [ERROR] aiogram.event: Cause exception while process update id=185365299 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 106, in cmd_pindname
+    if not await check_limit(message.from_user.id, "pindu"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 22:52:37,496 [INFO] aiogram.event: Update id=185365302 is not handled. Duration 19754 ms by bot id=8729550925
+2026-03-03 22:52:37,497 [ERROR] aiogram.event: Cause exception while process update id=185365302 by bot id=8729550925
+ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 650, in read_response
+    response = await self._parser.read_response(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        disable_decoding=disable_decoding
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 82, in read_response
+    response = await self._read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\resp2.py", line 90, in _read_response
+    raw = await self._readline()
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\_parsers\base.py", line 559, in _readline
+    data = await self._stream.readline()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 562, in readline
+    line = await self.readuntil(sep)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\streams.py", line 677, in readuntil
+    await self._wait_for_data('readuntil')
+  File "C:\Python314\Lib\asyncio\streams.py", line 539, in _wait_for_data
+    await self._waiter
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 286, in _loop_reading
+    length = fut.result()
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 804, in _poll
+    value = callback(transferred, key, ov)
+  File "C:\Python314\Lib\asyncio\windows_events.py", line 463, in finish_socket_func
+    return ov.getresult()
+           ~~~~~~~~~~~~^^
+OSError: [WinError 121] Превышен таймаут семафора
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 320, in _process_update
+    response = await self.feed_update(bot, update, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 164, in feed_update
+    response = await self.update.wrap_outer_middleware(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<7 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\error.py", line 27, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\middlewares\user_context.py", line 58, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\fsm\middleware.py", line 43, in __call__
+    return await handler(event, data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\dispatcher.py", line 283, in _listen_update
+    return await self.propagate_event(update_type=update_type, event=event, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 161, in propagate_event
+    return await observer.wrap_outer_middleware(_wrapped, event=event, data=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 153, in _wrapped
+    return await self._propagate_event(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+    )
+    ^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\router.py", line 181, in _propagate_event
+    response = await observer.trigger(event, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\telegram.py", line 126, in trigger
+    return await wrapped_inner(event, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\aiogram\dispatcher\event\handler.py", line 71, in call
+    return await wrapped()
+           ^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\main_app.py", line 142, in cmd_taoimg
+    if not await check_limit(message.from_user.id, "tao"):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "d:\telegram_projects\scripts\limits.py", line 38, in check_limit
+    count = await r.get(key)
+            ^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\client.py", line 735, in execute_command
+    conn = self.connection or await pool.get_connection()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\utils.py", line 227, in async_wrapper
+    return await func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1259, in get_connection
+    await self.ensure_connection(connection)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 1291, in ensure_connection
+    await connection.connect()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 324, in connect
+    await self.retry.call_with_retry(
+    ...<4 lines>...
+    )
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 55, in call_with_retry
+    raise error
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\retry.py", line 50, in call_with_retry
+    return await do()
+           ^^^^^^^^^^
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 355, in connect_check_health
+    await self.on_connect_check_health(check_health=check_health)
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 512, in on_connect_check_health
+    await self.read_response()
+  File "D:\telegram_projects\testvenv\Lib\site-packages\redis\asyncio\connection.py", line 664, in read_response
+    raise ConnectionError(f"Error while reading from {host_error} : {e.args}")
+redis.exceptions.ConnectionError: Error while reading from redis-11661.c135.eu-central-1-1.ec2.cloud.redislabs.com:11661 : (22, 'Превышен таймаут семафора', None, 121, None)
+2026-03-03 23:00:05,489 [INFO] __main__: Пользователь 7812309006 вызвал /pindname
+2026-03-03 23:00:06,655 [INFO] aiogram.event: Update id=185365303 is handled. Duration 1167 ms by bot id=8729550925
+2026-03-03 23:00:43,987 [INFO] __main__: Пользователь 6088589539 вызвал /taoimg
+2026-03-03 23:00:44,280 [INFO] aiogram.event: Update id=185365304 is handled. Duration 293 ms by bot id=8729550925
+2026-03-03 23:11:57,935 [INFO] __main__: Пользователь 6088589539 вызвал /taoimg
+2026-03-03 23:11:58,282 [INFO] aiogram.event: Update id=185365305 is handled. Duration 348 ms by bot id=8729550925
+2026-03-03 23:12:12,308 [INFO] __main__: Пользователь 6088589539 отправил фото для анализа Taobao
+2026-03-03 23:12:16,557 [INFO] TaobaoService: Cloudinary upload запрос: https://api.cloudinary.com/v1_1/dxm5b4drj/image/upload, статус: 200
+2026-03-03 23:12:19,988 [INFO] TaobaoService: Taobao image search запрос: https://taobao-datahub.p.rapidapi.com/item_search_image_2?imgUrl=https://res.cloudinary.com/dxm5b4drj/image/upload/v1772561534/avkqfkqfzg1nyrgnvkng.jpg&pageSize=10, статус: 200
+2026-03-03 23:12:19,990 [INFO] __main__: Пользователь 6088589539 получил карту товара
+2026-03-03 23:12:20,894 [INFO] aiogram.event: Update id=185365306 is handled. Duration 8588 ms by bot id=8729550925
+2026-03-03 23:12:27,310 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 23:12:27,578 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 23:12:28,488 [INFO] aiogram.event: Update id=185365307 is handled. Duration 1178 ms by bot id=8729550925
+2026-03-03 23:12:39,530 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 23:12:39,679 [INFO] __main__: Пользователь 8729550925 получил карту товара
+2026-03-03 23:12:40,383 [INFO] aiogram.event: Update id=185365308 is handled. Duration 853 ms by bot id=8729550925
+2026-03-03 23:12:42,996 [INFO] aiogram.event: Update id=185365309 is not handled. Duration 1 ms by bot id=8729550925
+2026-03-03 23:14:23,196 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 23:14:23,198 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 23:14:23,199 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 23:14:23,456 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 23:14:23,727 [ERROR] asyncio: Unclosed client session
+client_session: <aiohttp.client.ClientSession object at 0x000001E7E21B81A0>
+2026-03-03 23:14:30,294 [INFO] __main__: Приложение запущено
+2026-03-03 23:14:31,999 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 23:14:32,144 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 23:20:51,124 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 23:20:51,126 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 23:20:51,127 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 23:20:51,285 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 23:20:59,032 [INFO] __main__: Приложение запущено
+2026-03-03 23:21:00,619 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 23:21:00,760 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 23:21:00,917 [INFO] __main__: Пользователь 8729550925 отменил запрос
+2026-03-03 23:21:01,429 [INFO] aiogram.event: Update id=185365310 is handled. Duration 513 ms by bot id=8729550925
+2026-03-03 23:23:06,508 [INFO] __main__: Пользователь 8729550925 отменил запрос
+2026-03-03 23:23:06,683 [INFO] aiogram.event: Update id=185365311 is handled. Duration 175 ms by bot id=8729550925
+2026-03-03 23:23:09,573 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 23:23:11,578 [INFO] aiogram.event: Update id=185365312 is handled. Duration 2007 ms by bot id=8729550925
+2026-03-03 23:23:14,991 [INFO] __main__: Пользователь 8729550925 пролистнул
+2026-03-03 23:23:15,336 [INFO] aiogram.event: Update id=185365313 is handled. Duration 345 ms by bot id=8729550925
+2026-03-03 23:24:13,822 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 23:24:13,826 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 23:24:13,827 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 23:24:14,095 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 23:24:21,615 [INFO] __main__: Приложение запущено
+2026-03-03 23:24:23,197 [INFO] aiogram.dispatcher: Start polling
+2026-03-03 23:24:23,333 [INFO] aiogram.dispatcher: Run polling for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'
+2026-03-03 23:24:23,496 [INFO] __main__: Пользователь 8729550925 отменил запрос
+2026-03-03 23:24:24,078 [INFO] aiogram.event: Update id=185365314 is handled. Duration 583 ms by bot id=8729550925
+2026-03-03 23:24:28,787 [INFO] __main__: Пользователь 6088589539 вызвал /pindname
+2026-03-03 23:24:29,700 [INFO] aiogram.event: Update id=185365315 is handled. Duration 914 ms by bot id=8729550925
+2026-03-03 23:24:31,789 [INFO] __main__: Пользователь 6088589539 вызвал /pindname
+2026-03-03 23:24:32,138 [INFO] aiogram.event: Update id=185365316 is handled. Duration 349 ms by bot id=8729550925
+2026-03-03 23:27:24,755 [INFO] aiogram.dispatcher: Polling stopped
+2026-03-03 23:27:24,757 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - ServerDisconnectedError: Server disconnected
+2026-03-03 23:27:24,758 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8729550925)
+2026-03-03 23:27:25,012 [INFO] aiogram.dispatcher: Polling stopped for bot @tovarnyu_bot id=8729550925 - 'Товарный Анализ'

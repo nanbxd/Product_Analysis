@@ -14,11 +14,21 @@ async def get_reset_time(user_id: int, limit_type: str) -> dict[str]:
 
     moscow_time = datetime.now(MOSCOW_TZ) + timedelta(seconds=ttl)
     almaty_time = datetime.now(ALMATY_TZ) + timedelta(seconds=ttl)
-    return {'almaty': almaty_time.strftime("%H:%M"), 'moscow': moscow_time.strftime("%H:%M")}
+    return {
+            'almaty': almaty_time.strftime("%d.%m %H:%M"), 
+            'moscow': moscow_time.strftime("%d.%m %H:%M")
+        }
 
 # Настройки Redis
 REDIS_URL = config.reddis_db.get_secret_value()
-r = redis.from_url(REDIS_URL, decode_responses=True)
+r = redis.from_url(
+    REDIS_URL, 
+    decode_responses=True,
+    socket_connect_timeout=10,
+    socket_keepalive=True,
+    retry_on_timeout=True,
+    health_check_interval=30  # Проверять соединение каждые 30 секунд
+)
 
 
 # Лимиты
