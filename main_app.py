@@ -14,7 +14,7 @@ from aiogram.filters import Command
 from scripts.states_app import SearchState
 from aiogram.fsm.context import FSMContext
 from aiogram.types import BotCommand, ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InlineKeyboardMarkup, InlineKeyboardButton
-from scripts.limits import check_limit, increment_limit, get_remaining, get_reset_time
+from limits import check_limit, increment_limit, get_remaining, get_reset_time
 from scripts.logger_config import setup_logging
 #python -m scripts.main_app
 setup_logging()
@@ -106,7 +106,7 @@ async def cmd_pindname(message: types.Message, command: CommandObject, state: FS
     if not await check_limit(message.from_user.id, "pindu"):
         reset_at = await get_reset_time(message.from_user.id, "pindu")
         await message.answer("⚠️ Лимит анализов Pinduoduo на сегодня достигнут (4).\n"
-            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"⏳ Лимит восстановится в:\n"
             f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>")
         return
     # 2. Идем в API
@@ -142,7 +142,7 @@ async def cmd_taoimg(message: types.Message, state: FSMContext):
     if not await check_limit(message.from_user.id, "tao"):
         reset_at = await get_reset_time(message.from_user.id, "tao")
         await message.answer("⚠️ Лимит анализов Taobao на сегодня достигнут (3).\n"
-            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"⏳ Лимит восстановится в:\n"
             f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>")
         return
     # Создаем кнопку отмены
@@ -217,7 +217,7 @@ async def ai_img_handler(message: types.Message, bot: Bot):
 
         await message.answer(
             f"❌ Вы исчерпали дневной лимит обращений по фото к ИИ\n"
-            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"⏳ Лимит восстановится в:\n"
             f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>"
         )
         return
@@ -352,7 +352,7 @@ async def ai_message_handler(message: types.Message):
 
         await message.answer(
             f"❌ Вы исчерпали дневной лимит обращений по тексту к ИИ\n"
-            f"⏳ Лимит восстановится <b>завтра</b> в:\n"
+            f"⏳ Лимит восстановится в:\n"
             f"<b>{reset_at['almaty']}</b> <i>(ALMATY)</i> / <b>{reset_at['moscow']}</b> <i>(MOSCOW)</i>"
         )
         return
