@@ -369,9 +369,28 @@ async def ai_message_handler(message: types.Message):
     except Exception:
         await message.answer(response, parse_mode=None)
 
+from aiohttp import web
+import asyncio
+
+# Функция-затычка для Render
+async def health_check(request):
+    return web.Response(text="Bot is alive")
+
+async def start_health_check():
+    app = web.Application()
+    app.router.add_get("/", health_check)
+    runner = web.AppRunner(app)
+    await runner.setup()
+    # Указываем порт 10000 напрямую
+    site = web.TCPSite(runner, "0.0.0.0", 10000)
+    await site.start()
+
+
 # Запуск процесса поллинга новых апдейтов
 async def main():
-    await set_commands(bot)  
+    await set_commands(bot)
+    asyncio.create_task(start_health_check())
+
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
