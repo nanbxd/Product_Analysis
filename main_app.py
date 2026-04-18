@@ -382,7 +382,7 @@ async def start_health_check():
     runner = web.AppRunner(app)
     await runner.setup()
     # Указываем порт 10000 напрямую
-    site = web.TCPSite(runner, "0.0.0.0", 10000)
+    site = web.TCPSite(runner, "0.0.0.0", 7860)
     await site.start()
 
 
